@@ -26,10 +26,12 @@ Everything shown on the site lives in [`src/data/site.ts`](src/data/site.ts) —
 role, tagline, about copy, stats, skills and their levels, projects, social links, and
 nav items. Edit that file and the components pick it up; no markup changes needed.
 
-## Your photo
+## Branding
 
-Put your hero image at `public/profile.jpg` (see [`public/README.md`](public/README.md)).
-Missing image? The hero falls back to your initials instead of breaking the layout.
+The hero photo is `public/laurence.jpg` and the "R" mark is `public/logo.svg`, drawn
+inline by `src/components/LogoMark.tsx` so it follows the theme. The wordmark next to
+it is real text, not part of the SVG. See [`public/README.md`](public/README.md) for
+how to swap either one.
 
 ## Contact form
 

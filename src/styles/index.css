@@ -16,7 +16,6 @@
   --text-muted: #5b6b7b;
   --heading: #16232f;
 
-  --logo-bg: #0f172a;
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.12);
@@ -39,7 +38,6 @@
   --heading: #f1f7f4;
 
   --brand-tint: rgba(34, 197, 94, 0.18);
-  --logo-bg: #f8fafc;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5);
@@ -264,17 +262,25 @@ textarea {
   gap: 8px;
 }
 
+/* Mark is 218x176; the width keeps that ratio at the height below. */
 .logo__mark {
-  display: grid;
-  place-items: center;
+  flex: none;
+  height: 26px;
+  width: 32.2px;
+  color: var(--heading);
+  transition: color 0.2s ease;
 }
 
-/* Works for a square mark or a wide logo that already includes the wordmark. */
-.logo__mark img {
-  width: auto;
-  height: 36px;
-  max-width: 220px;
-  object-fit: contain;
+.logo:hover .logo__mark {
+  color: var(--brand);
+}
+
+.logo__dot {
+  color: var(--brand);
+}
+
+.logo__suffix {
+  color: var(--text-muted);
 }
 
 .logo__text {

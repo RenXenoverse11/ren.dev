@@ -32,12 +32,7 @@ export type SocialLink = {
 
 export const site = {
   brand: 'ren.dev',
-  /**
-   * Brand mark shown in the navbar and footer. Drop your SVG at
-   * `public/logo.svg`; if the file is missing, a built-in leaf mark is used.
-   */
-  logo: '/logo.svg',
-  /** Set to false if your SVG already contains the "ren.dev" wordmark. */
+  /** Show the "ren.dev" text beside the mark. Set false to use the mark alone. */
   showWordmark: true,
   name: 'Laurence Jan Bagaan',
   greeting: "Hello, I am",
@@ -45,10 +40,10 @@ export const site = {
   tagline:
     'Building exceptional digital experiences with modern technologies and creative solutions.',
   /**
-   * Drop your photo in `public/` and point this at it (e.g. '/profile.jpg').
-   * If the file is missing, the hero falls back to your initials.
+   * Hero photo, served from `public/`. If the file is missing, the hero falls
+   * back to your initials instead of a broken image.
    */
-  photo: '/profile.jpg',
+  photo: '/laurence.jpg',
   resume: '/resume.pdf',
   location: 'Philippines',
   email: 'laurencejan1431@gmail.com',
