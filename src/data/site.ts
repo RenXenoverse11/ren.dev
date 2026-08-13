@@ -39,7 +39,7 @@ export const site = {
   greeting: "Hello, I am",
   role: 'Full Stack Web and Mobile Developer',
   tagline:
-    'Building exceptional digital experiences with modern technologies and creative solutions.',
+    'Building responsive web and mobile experiences with clean design, modern technology, and reliable engineering.',
   /**
    * Hero photo, served from `public/`. If the file is missing, the hero falls
    * back to your initials instead of a broken image.
