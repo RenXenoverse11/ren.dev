@@ -20,7 +20,8 @@ export type SkillGroup = {
 
 export type Project = {
   title: string
-  description: string
+  /** A string, or several for a card that reads in paragraphs. */
+  description: string | string[]
   tags: string[]
   demo?: string
   repo?: string
@@ -150,27 +151,30 @@ export const projects: Project[] = [
   {
     title: 'MindaRide',
     description:
-      'A bus schedule and fare finder for Mindanao. Riders compare fares, schedules, operators, and travel times across overland routes on a live map, switch between regular and student/PWD/senior fares, and ask an in-app assistant questions in Tagalog, Bisaya, or English.',
-    tags: ['React 19', 'TanStack Start', 'TypeScript', 'Supabase', 'Mapbox', 'Capacitor'],
-    cover: '🚌',
+      'MindaRide is a transportation information platform that helps users discover bus routes, terminals, transportation providers, and travel schedules across Mindanao. The platform provides a modern and user-friendly way to access transportation information, making travel planning more convenient and efficient. I was responsible for the full development of the project, including frontend development, backend integration, database design, UI/UX design, and system architecture using modern web technologies.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Responsive Design'],
+    cover: '\u{1F68C}',
     image: '/projects/mindaride.webp',
     demo: 'https://mindaride.online',
   },
   {
     title: 'Internship Management System',
-    description:
-      'An OJT platform for interns and supervisors: clock in/out with attendance PDF export, task and work logs, absence and overtime requests, project submissions with milestones, and document folders with per-user access.',
-    tags: ['Svelte 5', 'Tailwind CSS', 'Google Apps Script', 'Google Sheets', 'Chart.js'],
-    cover: '🎓',
+    description: [
+      'IMS is a web-based Internship Management System built for tracking OJT hours, projects, requests, and activity logs for student interns.',
+      "Built with Svelte and deployed on Google Apps Script, using Google Sheets as the database — a lightweight, zero-cost architecture that's fully functional in real-world use. Features a modern dark enterprise UI with dashboard analytics, progress tracking, document management, and role-based views.",
+      'I handled full design and development — UI/UX, frontend, and backend integration.',
+    ],
+    tags: ['Svelte', 'Google Apps Script', 'JavaScript', 'Web Design', 'Google Spreadsheets API'],
+    cover: '\u{1F393}',
     image: '/projects/IMS-dashboard.webp',
     repo: 'https://github.com/RenXenoverse11/IMS',
   },
   {
     title: 'KPI Monitoring Dashboard',
     description:
-      'An operations dashboard tracking KPIs across several network systems, each with its own view, editable targets, and planned-maintenance tracking. Runs as a Google Apps Script web app over Google Sheets, so the team keeps working in the tool they already use.',
-    tags: ['Google Apps Script', 'Google Sheets', 'JavaScript', 'Bootstrap', 'GSAP'],
-    cover: '📊',
+      'Built a Google Apps Script web dashboard for monitoring submarine cable system KPIs. The app reads structured Google Sheets data and presents performance views for Dashboard, SEA-US, Palau, IPOP, FSM, EMCS, and Planned Maintenance modules. I focused on clear reporting, maintainable sheet-driven data flow, and a dashboard layout that makes operational monitoring easier for the team.',
+    tags: ['Google Apps Script', 'Google Sheets Automation', 'JavaScript', 'Bootstrap', 'Data Visualization'],
+    cover: '\u{1F4CA}',
     image: '/projects/tsi-kpi-dashboard.webp',
     repo: 'https://github.com/RenXenoverse11/kpi-monitoring',
   },

@@ -41,7 +41,14 @@ export function Projects() {
 
               <div className="project__body">
                 <h3 className="project__title">{project.title}</h3>
-                <p className="project__description">{project.description}</p>
+                {(Array.isArray(project.description)
+                  ? project.description
+                  : [project.description]
+                ).map((paragraph) => (
+                  <p key={paragraph.slice(0, 32)} className="project__description">
+                    {paragraph}
+                  </p>
+                ))}
 
                 <ul className="project__tags">
                   {project.tags.map((tag) => (

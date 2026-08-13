@@ -845,6 +845,10 @@ textarea {
   font-size: 1.2rem;
 }
 
+.project__description + .project__description {
+  margin-top: 10px;
+}
+
 .project__description {
   margin-top: 10px;
   color: var(--text-muted);
