@@ -36,47 +36,67 @@ export function Projects() {
 
         <div className="projects__grid">
           {projects.map((project) => (
-            <article key={project.title} className="project card">
-              <ProjectCover project={project} />
-
-              <div className="project__body">
-                <h3 className="project__title">{project.title}</h3>
-                {(Array.isArray(project.description)
-                  ? project.description
-                  : [project.description]
-                ).map((paragraph) => (
-                  <p key={paragraph.slice(0, 32)} className="project__description">
-                    {paragraph}
-                  </p>
-                ))}
-
-                <ul className="project__tags">
-                  {project.tags.map((tag) => (
-                    <li key={tag} className="tag">
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="project__links">
-                  {project.demo ? (
-                    <a className="project__link" href={project.demo}>
-                      <ExternalLinkIcon /> Live Demo
-                    </a>
-                  ) : null}
-                  {project.repo ? (
-                    <a className="project__link" href={project.repo}>
-                      <GitHubIcon /> Source
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </article>
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
 
         <Contributions />
       </div>
     </section>
+  )
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  const [expanded, setExpanded] = useState(false)
+  const paragraphs = Array.isArray(project.description)
+    ? project.description
+    : [project.description]
+
+  // Only offer the toggle when there is more than the clamp will show.
+  const isLong = paragraphs.length > 1 || paragraphs[0].length > 190
+
+  return (
+    <article className="project card">
+      <ProjectCover project={project} />
+
+      <div className="project__body">
+        <h3 className="project__title">{project.title}</h3>
+
+        <div className={`project__copy${isLong && !expanded ? ' project__copy--clamped' : ''}`}>
+          {paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 32)} className="project__description">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        {isLong ? (
+          <button type="button" className="project__more" onClick={() => setExpanded((v) => !v)}>
+            {expanded ? 'Show less' : 'Read more'}
+          </button>
+        ) : null}
+
+        <ul className="project__tags">
+          {project.tags.map((tag) => (
+            <li key={tag} className="tag">
+              {tag}
+            </li>
+          ))}
+        </ul>
+
+        <div className="project__links">
+          {project.demo ? (
+            <a className="project__link" href={project.demo} target="_blank" rel="noreferrer">
+              <ExternalLinkIcon /> Live Demo
+            </a>
+          ) : null}
+          {project.repo ? (
+            <a className="project__link" href={project.repo} target="_blank" rel="noreferrer">
+              <GitHubIcon /> Source
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </article>
   )
 }

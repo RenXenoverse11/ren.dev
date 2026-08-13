@@ -33,7 +33,7 @@
   --radius: 16px;
   --radius-lg: 24px;
   --nav-height: 72px;
-  --container: 1200px;
+  --container: 1320px;
 }
 
 :root[data-theme='dark'] {
@@ -845,14 +845,47 @@ textarea {
   font-size: 1.2rem;
 }
 
-.project__description + .project__description {
-  margin-top: 10px;
-}
-
 .project__description {
   margin-top: 10px;
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+.project__description + .project__description {
+  margin-top: 10px;
+}
+
+/* Collapsed, the copy is capped at four lines so every card in the row is
+   about the same height; expanding reveals the rest in place. */
+.project__copy--clamped .project__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.project__copy--clamped .project__description ~ .project__description {
+  display: none;
+}
+
+.project__more {
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--brand-deep);
+  cursor: pointer;
+}
+
+:root[data-theme='dark'] .project__more {
+  color: var(--brand);
+}
+
+.project__more:hover {
+  text-decoration: underline;
 }
 
 .project__tags {
