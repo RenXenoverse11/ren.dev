@@ -530,8 +530,9 @@ textarea {
   color: var(--heading);
 }
 
+/* Same ink as the lead — size and weight carry the hierarchy instead. */
 .about__paragraph {
-  color: var(--text-muted);
+  color: var(--heading);
 }
 
 .about__lead + .about__paragraph {
