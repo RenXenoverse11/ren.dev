@@ -51,7 +51,7 @@ export const site = {
   photo: '/laurence.jpg',
   /** Served from `public/`. The filename is what lands in the visitor's downloads. */
   resume: '/LAURENCE-BAGAAN_RESUME.pdf',
-  location: 'Philippines',
+  location: 'Davao City, Philippines',
   email: 'laurencejan1431@gmail.com',
   phone: '',
 }
@@ -203,7 +203,11 @@ export const projects: Project[] = [
 
 export const socials: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/RenXenoverse11', icon: 'github' },
-  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/laurence-jan-bagaan-812ba33b7/',
+    icon: 'linkedin',
+  },
   { label: 'Facebook', href: 'https://www.facebook.com/renxen11/', icon: 'facebook' },
   { label: 'Email', href: `mailto:${site.email}`, icon: 'mail' },
 ]
@@ -222,4 +226,4 @@ export const navLinks = [
  * To use Formspree instead, set this to your endpoint, e.g.
  * 'https://formspree.io/f/xxxxxxxx'
  */
-export const contactEndpoint = ''
+export const contactEndpoint = 'https://formspree.io/f/mykaklod'
