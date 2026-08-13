@@ -61,9 +61,8 @@ export function Contributions() {
   const labels = monthLabels(calendar.weeks)
 
   return (
-    <section className="section contributions" id="activity">
-      <div className="container">
-        <div className="contributions__card card">
+    <div className="contributions" id="activity">
+      <div className="contributions__card card">
           <div className="contributions__head">
             <h2 className="contributions__title">
               {calendar.total !== null ? (
@@ -121,15 +120,14 @@ export function Contributions() {
             </div>
           </div>
 
-          <div className="contributions__legend">
-            <span>Less</span>
-            {[0, 1, 2, 3, 4].map((level) => (
-              <span key={level} className="contributions__day" data-level={level} />
-            ))}
-            <span>More</span>
-          </div>
+        <div className="contributions__legend">
+          <span>Less</span>
+          {[0, 1, 2, 3, 4].map((level) => (
+            <span key={level} className="contributions__day" data-level={level} />
+          ))}
+          <span>More</span>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

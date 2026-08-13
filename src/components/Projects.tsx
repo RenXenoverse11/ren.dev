@@ -1,4 +1,5 @@
 import { projects } from '../data/site'
+import { Contributions } from './Contributions'
 import { ExternalLinkIcon, GitHubIcon } from './Icons'
 import { SectionHeading } from './SectionHeading'
 
@@ -43,6 +44,8 @@ export function Projects() {
             </article>
           ))}
         </div>
+
+        <Contributions />
       </div>
     </section>
   )

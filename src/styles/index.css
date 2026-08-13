@@ -871,8 +871,14 @@ textarea {
 /* ============================================================
    Contributions
    ============================================================ */
+/* Sits inside the Projects section rather than in a band of its own, so it
+   shares that background instead of introducing a third stripe. */
+.contributions {
+  margin-top: 40px;
+}
+
 .contributions__card {
-  padding: 28px 32px;
+  padding: 26px 30px;
 }
 
 .contributions__head {
