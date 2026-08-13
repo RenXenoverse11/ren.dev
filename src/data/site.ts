@@ -31,8 +31,9 @@ export type SocialLink = {
 }
 
 export const site = {
-  brand: 'ren.dev',
-  /** Show the "ren.dev" text beside the mark. Set false to use the mark alone. */
+  /** Wordmark next to the logo. Split on the last dot: name, accent dot, suffix. */
+  brand: 'renxen.dev',
+  /** Show the wordmark text beside the mark. Set false to use the mark alone. */
   showWordmark: true,
   name: 'Laurence Jan Bagaan',
   greeting: "Hello, I am",

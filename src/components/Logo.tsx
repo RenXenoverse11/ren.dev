@@ -1,9 +1,13 @@
 import { site } from '../data/site'
 import { LogoMark } from './LogoMark'
 
+const dotIndex = site.brand.lastIndexOf('.')
+const brandName = dotIndex === -1 ? site.brand : site.brand.slice(0, dotIndex)
+const brandSuffix = dotIndex === -1 ? '' : site.brand.slice(dotIndex + 1)
+
 /**
  * Brand lockup: the custom "R" SVG mark followed by the wordmark as live text —
- * "ren" solid, the dot as the accent, "dev" muted.
+ * the name solid, the dot as the accent, the TLD muted.
  */
 export function Logo({ href = '#home' }: { href?: string }) {
   return (
@@ -11,8 +15,13 @@ export function Logo({ href = '#home' }: { href?: string }) {
       <LogoMark className="logo__mark" />
       {site.showWordmark ? (
         <span className="logo__text">
-          ren<span className="logo__dot">.</span>
-          <span className="logo__suffix">dev</span>
+          {brandName}
+          {brandSuffix ? (
+            <>
+              <span className="logo__dot">.</span>
+              <span className="logo__suffix">{brandSuffix}</span>
+            </>
+          ) : null}
         </span>
       ) : null}
     </a>

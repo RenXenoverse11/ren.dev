@@ -11,8 +11,9 @@ the hero shows your initials instead of a broken image.
 ## Your logo
 
 `logo.svg` is the "R" brand mark. The header and footer render it inline from
-`src/components/LogoMark.tsx` so it can inherit the theme color, with "ren.dev"
-beside it as live text — mark, then `ren`, an accent dot, and a muted `dev`.
+`src/components/LogoMark.tsx` so it can inherit the theme color, with "renxen.dev"
+beside it as live text — the mark, the name, an accent dot, then a muted TLD. The
+wordmark is split from `site.brand`, so renaming the brand is a one-line change.
 
 - Editing the artwork means updating **both** `public/logo.svg` and `LogoMark.tsx`.
 - `favicon.svg` is the same mark in brand green on a dark tile.
