@@ -416,7 +416,9 @@ textarea {
 
 .hero__tagline {
   margin-top: 18px;
-  max-width: 46ch;
+  /* Wide enough to hold the tagline on two lines at desktop widths. */
+  max-width: 58ch;
+  text-wrap: balance;
   color: var(--text-muted);
 }
 
