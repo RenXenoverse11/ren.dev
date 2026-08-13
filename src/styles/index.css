@@ -514,116 +514,24 @@ textarea {
 /* ============================================================
    About
    ============================================================ */
-.about__grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.about__card {
-  padding: 32px;
-}
-
-.about__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--brand-tint);
-  color: var(--brand-strong);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.about__badge svg {
-  width: 16px;
-  height: 16px;
-}
-
-:root[data-theme='dark'] .about__badge {
-  color: var(--brand-soft);
-}
-
-.about__name {
-  margin-top: 18px;
-  font-size: 1.5rem;
-}
-
-.about__role {
-  color: var(--brand-strong);
-  font-weight: 600;
-}
-
-:root[data-theme='dark'] .about__role {
-  color: var(--brand-soft);
-}
-
-.about__highlights {
-  margin-top: 22px;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 12px;
-}
-
-.about__highlights li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-.about__check {
-  flex: none;
-  width: 18px;
-  height: 18px;
-  margin-top: 4px;
-  color: var(--brand);
-}
-
-.about__paragraph + .about__paragraph {
-  margin-top: 16px;
+.about__body {
+  max-width: 68ch;
+  margin-inline: auto;
 }
 
 .about__paragraph {
   color: var(--text-muted);
 }
 
-.about__stats {
-  margin-top: 32px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.stat {
-  padding: 22px 16px;
-  text-align: center;
-}
-
-.stat__value {
-  display: block;
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: var(--brand-strong);
-}
-
-:root[data-theme='dark'] .stat__value {
-  color: var(--brand);
-}
-
-.stat__label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.about__paragraph + .about__paragraph {
+  margin-top: 16px;
 }
 
 .about__actions {
-  margin-top: 32px;
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
 }
 
@@ -960,7 +868,6 @@ textarea {
    ============================================================ */
 @media (max-width: 960px) {
   .hero__inner,
-  .about__grid,
   .contact__grid {
     grid-template-columns: 1fr;
   }
@@ -1035,10 +942,6 @@ textarea {
   .navbar__link {
     width: 100%;
     padding-block: 12px;
-  }
-
-  .about__stats {
-    grid-template-columns: 1fr;
   }
 
   .field-row {

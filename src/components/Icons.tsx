@@ -80,14 +80,6 @@ export function MapPinIcon({ className }: IconProps) {
   )
 }
 
-export function CheckIcon({ className }: IconProps) {
-  return (
-    <svg {...base} className={className}>
-      <path d="M20 6 9 17l-5-5" />
-    </svg>
-  )
-}
-
 export function GitHubIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width={20} height={20} fill="currentColor" className={className} aria-hidden>

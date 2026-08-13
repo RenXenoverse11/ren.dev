@@ -60,17 +60,6 @@ export const about = {
     'On the web I reach for React and TypeScript on the front end, with Node.js and PostgreSQL behind it. For mobile I build cross-platform apps with React Native and Flutter, so a single codebase ships to both Android and iOS.',
     "I care about details: fast load times, accessible markup, and code that the next developer can read. When I'm not shipping, I'm usually learning something new or refactoring something old.",
   ],
-  stats: [
-    { value: '3+', label: 'Years Experience' },
-    { value: '20+', label: 'Projects Built' },
-    { value: '15+', label: 'Happy Clients' },
-  ],
-  highlights: [
-    'Clean, maintainable, well-typed code',
-    'Responsive and accessible interfaces',
-    'REST & GraphQL API development',
-    'Cross-platform mobile apps',
-  ],
 }
 
 export const skillGroups: SkillGroup[] = [
