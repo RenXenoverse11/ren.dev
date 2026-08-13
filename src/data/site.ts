@@ -31,7 +31,7 @@ export type Project = {
 export type SocialLink = {
   label: string
   href: string
-  icon: 'github' | 'linkedin' | 'facebook' | 'mail'
+  icon: 'github' | 'linkedin' | 'facebook' | 'upwork' | 'mail'
 }
 
 export const site = {
@@ -209,6 +209,11 @@ export const socials: SocialLink[] = [
     icon: 'linkedin',
   },
   { label: 'Facebook', href: 'https://www.facebook.com/renxen11/', icon: 'facebook' },
+  {
+    label: 'Upwork',
+    href: 'https://www.upwork.com/freelancers/~01c91551d88f9a1a24',
+    icon: 'upwork',
+  },
   { label: 'Email', href: `mailto:${site.email}`, icon: 'mail' },
 ]
 
