@@ -9,6 +9,13 @@
   --brand-deep: #15913f;
   --brand-tint: rgba(34, 197, 94, 0.12);
 
+  /* Contribution calendar steps, light to dark. */
+  --level-0: #e4efe8;
+  --level-1: #9be9a8;
+  --level-2: #40c463;
+  --level-3: #30a14e;
+  --level-4: #216e39;
+
   --bg: #edfaf1;
   --surface: #ffffff;
   --surface-2: #f6fdf8;
@@ -40,6 +47,13 @@
   --heading: #f1f7f4;
 
   --brand-tint: rgba(34, 197, 94, 0.18);
+
+  --level-0: #1b2b24;
+  --level-1: #0e4429;
+  --level-2: #006d32;
+  --level-3: #26a641;
+  --level-4: #39d353;
+
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5);
@@ -852,6 +866,112 @@ textarea {
 
 :root[data-theme='dark'] .project__link {
   color: var(--brand-soft);
+}
+
+/* ============================================================
+   Contributions
+   ============================================================ */
+.contributions__card {
+  padding: 28px 32px;
+}
+
+.contributions__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.contributions__title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.contributions__title strong {
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.contributions__link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand-deep);
+}
+
+:root[data-theme='dark'] .contributions__link {
+  color: var(--brand);
+}
+
+.contributions__link:hover {
+  text-decoration: underline;
+}
+
+/* The calendar is a fixed 53-ish columns wide; let it scroll rather than
+   squeeze the squares into unreadable slivers on narrow screens. */
+.contributions__scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  display: flex;
+  /* `safe` keeps the left edge reachable once the calendar overflows. */
+  justify-content: safe center;
+}
+
+.contributions__grid-wrap {
+  display: inline-grid;
+  gap: 6px;
+}
+
+.contributions__months {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 14px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.contributions__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 11px);
+  grid-auto-columns: 11px;
+  gap: 3px;
+}
+
+.contributions__day {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  background: var(--level-0);
+}
+
+.contributions__day--empty {
+  background: transparent;
+}
+
+.contributions__day[data-level='1'] { background: var(--level-1); }
+.contributions__day[data-level='2'] { background: var(--level-2); }
+.contributions__day[data-level='3'] { background: var(--level-3); }
+.contributions__day[data-level='4'] { background: var(--level-4); }
+
+.contributions__legend {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.contributions__legend span:first-child {
+  margin-right: 4px;
+}
+
+.contributions__legend span:last-child {
+  margin-left: 4px;
 }
 
 /* ============================================================
