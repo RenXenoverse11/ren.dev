@@ -57,6 +57,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <article className="project card">
+      {project.status ? <span className="project__status">{project.status}</span> : null}
       <ProjectCover project={project} />
 
       <div className="project__body">

@@ -27,6 +27,8 @@ export type Project = {
   repo?: string
   /** Screenshot served from `public/projects/`. Falls back to `cover`. */
   image?: string
+  /** Badge over the cover, e.g. 'Live' or 'Ongoing'. Omit for none. */
+  status?: string
   /** Emoji shown on a gradient when there is no screenshot. */
   cover: string
 }
@@ -150,6 +152,7 @@ export const skillGroups: SkillGroup[] = [
 export const projects: Project[] = [
   {
     title: 'MindaRide',
+    status: 'Live',
     description:
       'MindaRide is a transportation information platform that helps users discover bus routes, terminals, transportation providers, and travel schedules across Mindanao. The platform provides a modern and user-friendly way to access transportation information, making travel planning more convenient and efficient. I was responsible for the full development of the project, including frontend development, backend integration, database design, UI/UX design, and system architecture using modern web technologies.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Responsive Design'],
@@ -159,6 +162,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Internship Management System',
+    status: 'Live',
     description: [
       'IMS is a web-based Internship Management System built for tracking OJT hours, projects, requests, and activity logs for student interns.',
       "Built with Svelte and deployed on Google Apps Script, using Google Sheets as the database — a lightweight, zero-cost architecture that's fully functional in real-world use. Features a modern dark enterprise UI with dashboard analytics, progress tracking, document management, and role-based views.",
@@ -167,15 +171,18 @@ export const projects: Project[] = [
     tags: ['Svelte', 'Google Apps Script', 'JavaScript', 'Web Design', 'Google Spreadsheets API'],
     cover: '\u{1F393}',
     image: '/projects/IMS-dashboard.webp',
+    demo: 'https://script.google.com/macros/s/AKfycbwyUDOp8pRephiqYVBXZAHGLhS6Ju-2g5XgUBCZG6LLiL047kP1euq1qM9u-Ahf1-q9/exec',
     repo: 'https://github.com/RenXenoverse11/IMS',
   },
   {
     title: 'KPI Monitoring Dashboard',
+    status: 'Live',
     description:
       'Built a Google Apps Script web dashboard for monitoring submarine cable system KPIs. The app reads structured Google Sheets data and presents performance views for Dashboard, SEA-US, Palau, IPOP, FSM, EMCS, and Planned Maintenance modules. I focused on clear reporting, maintainable sheet-driven data flow, and a dashboard layout that makes operational monitoring easier for the team.',
     tags: ['Google Apps Script', 'Google Sheets Automation', 'JavaScript', 'Bootstrap', 'Data Visualization'],
     cover: '\u{1F4CA}',
     image: '/projects/tsi-kpi-dashboard.webp',
+    demo: 'https://script.google.com/macros/s/AKfycbwIZ_koIHSEcOIdf-bt2-ngz5bmenqh7FJ04bnLnoWU43Iylb6YyoPmI1qLXCeZx23h/exec',
     repo: 'https://github.com/RenXenoverse11/kpi-monitoring',
   },
 ]
