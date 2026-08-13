@@ -807,9 +807,31 @@ textarea {
 .project__cover {
   display: grid;
   place-items: center;
-  height: 160px;
+  aspect-ratio: 16 / 9;
   font-size: 3.2rem;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-soft) 100%);
+}
+
+/* A screenshot fills the frame, cropped from the top where the interesting
+   part of a page usually is.
+
+   The image is positioned rather than laid out in flow: as an ordinary child
+   it sizes the box from its own height, which overrides the aspect ratio and
+   spills the picture down across the title. */
+.project__cover--image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.project__cover--image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .project__body {

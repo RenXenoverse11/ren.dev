@@ -4,14 +4,20 @@ Screenshots for the project cards, referenced by `image` in `src/data/site.ts`.
 
 | File | Card |
 | --- | --- |
-| `mindaride.png` | MindaRide |
-| `ims.png` | Internship Management System |
-| `kpi-monitoring.png` | KPI Monitoring Dashboard |
+| `mindaride.webp` | MindaRide |
+| `IMS-dashboard.webp` | Internship Management System |
+| `tsi-kpi-dashboard.webp` | KPI Monitoring Dashboard |
 
 - The frame is **16:9** and the image is cropped from the top, so put the
   interesting part of the screen near the top of the shot.
-- Around **1200×675** is plenty — the card is never wider than ~380px.
-- Keep each file under ~300KB. JPG or WebP compress far better than PNG for
-  screenshots with photos or gradients in them.
+- Drop a new PNG or JPG here, then run the optimizer — it resizes to 1200px
+  wide, converts to WebP, and deletes the original:
+
+  ```bash
+  npm i -D --no-save sharp && node scripts/optimize-images.mjs
+  ```
+
+  Point `image` at the resulting `.webp`. Straight off a browser these files
+  run to a megabyte or more; through the optimizer they land under 50KB.
 - A missing file is not a broken card: it falls back to the emoji on a green
-  gradient, which is what the cards showed before any screenshots existed.
+  gradient.

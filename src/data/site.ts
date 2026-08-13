@@ -153,7 +153,7 @@ export const projects: Project[] = [
       'A bus schedule and fare finder for Mindanao. Riders compare fares, schedules, operators, and travel times across overland routes on a live map, switch between regular and student/PWD/senior fares, and ask an in-app assistant questions in Tagalog, Bisaya, or English.',
     tags: ['React 19', 'TanStack Start', 'TypeScript', 'Supabase', 'Mapbox', 'Capacitor'],
     cover: '🚌',
-    image: '/projects/mindaride.png',
+    image: '/projects/mindaride.webp',
     demo: 'https://mindaride.online',
   },
   {
@@ -162,7 +162,7 @@ export const projects: Project[] = [
       'An OJT platform for interns and supervisors: clock in/out with attendance PDF export, task and work logs, absence and overtime requests, project submissions with milestones, and document folders with per-user access.',
     tags: ['Svelte 5', 'Tailwind CSS', 'Google Apps Script', 'Google Sheets', 'Chart.js'],
     cover: '🎓',
-    image: '/projects/ims.png',
+    image: '/projects/IMS-dashboard.webp',
     repo: 'https://github.com/RenXenoverse11/IMS',
   },
   {
@@ -171,7 +171,7 @@ export const projects: Project[] = [
       'An operations dashboard tracking KPIs across several network systems, each with its own view, editable targets, and planned-maintenance tracking. Runs as a Google Apps Script web app over Google Sheets, so the team keeps working in the tool they already use.',
     tags: ['Google Apps Script', 'Google Sheets', 'JavaScript', 'Bootstrap', 'GSAP'],
     cover: '📊',
-    image: '/projects/kpi-monitoring.png',
+    image: '/projects/tsi-kpi-dashboard.webp',
     repo: 'https://github.com/RenXenoverse11/kpi-monitoring',
   },
 ]
