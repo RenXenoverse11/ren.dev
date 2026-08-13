@@ -54,11 +54,12 @@ export const site = {
 
 export const about = {
   heading: 'About Me',
-  subheading: 'Get to know me a little better',
+  subheading: 'Building digital products from idea to reality',
   paragraphs: [
-    "I'm a full stack developer who enjoys turning ideas into products people actually like using. I work across the stack — from designing clean, responsive interfaces to building the APIs and data models that power them.",
-    'On the web I reach for React and TypeScript on the front end, with Node.js and PostgreSQL behind it. For mobile I build cross-platform apps with React Native and Flutter, so a single codebase ships to both Android and iOS.',
-    "I care about details: fast load times, accessible markup, and code that the next developer can read. When I'm not shipping, I'm usually learning something new or refactoring something old.",
+    "I'm a full-stack developer who enjoys turning ideas into practical digital products. I work across both design and development — from creating intuitive user interfaces in Figma to building the frontend, backend, APIs, and databases that power them.",
+    'My experience includes developing responsive web applications, cross-platform mobile apps, and scalable backend systems. I focus on creating products that are fast, accessible, maintainable, and enjoyable to use.',
+    "One of the projects I'm most proud of is MindaRide, a transportation platform I designed and developed to help commuters in Mindanao search routes, check fares, and plan their trips more efficiently.",
+    "I'm constantly learning new technologies, improving my craft, and looking for opportunities to build meaningful products that solve real problems.",
   ],
 }
 
