@@ -37,7 +37,7 @@ export const site = {
   showWordmark: true,
   name: 'Laurence Jan Bagaan',
   greeting: "Hello, I am",
-  role: 'Full Stack Web and Mobile Developer',
+  role: 'Full-Stack Web and Mobile Developer',
   tagline:
     'Building responsive web and mobile experiences with clean design, modern technology, and reliable engineering.',
   /**

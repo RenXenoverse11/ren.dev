@@ -1,6 +1,6 @@
 # renxen.dev
 
-Personal portfolio site for **Laurence Jan Bagaan** — Full Stack Web and Mobile Developer.
+Personal portfolio site for **Laurence Jan Bagaan** — Full-Stack Web and Mobile Developer.
 
 Built with React 18, TypeScript, and Vite. No UI framework — hand-written CSS with
 design tokens, so light and dark themes are a single set of variables.
