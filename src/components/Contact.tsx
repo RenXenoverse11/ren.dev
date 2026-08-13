@@ -124,7 +124,7 @@ export function Contact() {
                   name="name"
                   value={fields.name}
                   onChange={update('name')}
-                  placeholder="Juan Dela Cruz"
+                  placeholder="Your name"
                   aria-invalid={Boolean(errors.name)}
                 />
                 {errors.name ? <span className="field__error">{errors.name}</span> : null}
