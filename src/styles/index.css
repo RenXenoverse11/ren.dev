@@ -299,7 +299,10 @@ textarea {
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 32px;
+  /* Push the links over to sit beside the theme toggle instead of centering
+     them in the bar. */
+  margin-left: auto;
 }
 
 .navbar__link {
