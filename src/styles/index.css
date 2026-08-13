@@ -277,12 +277,16 @@ textarea {
   color: var(--brand);
 }
 
-.logo__dot {
-  color: var(--brand);
+/* ".dev" carries the brand color as one unit — the dot alone was too small
+   to register, and muting "dev" left it looking washed out on white. */
+.logo__dot,
+.logo__suffix {
+  color: var(--brand-deep);
 }
 
-.logo__suffix {
-  color: var(--text-muted);
+:root[data-theme='dark'] .logo__dot,
+:root[data-theme='dark'] .logo__suffix {
+  color: var(--brand);
 }
 
 .logo__text {
