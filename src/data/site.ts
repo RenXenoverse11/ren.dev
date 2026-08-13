@@ -45,7 +45,8 @@ export const site = {
    * back to your initials instead of a broken image.
    */
   photo: '/laurence.jpg',
-  resume: '/resume.pdf',
+  /** Served from `public/`. The filename is what lands in the visitor's downloads. */
+  resume: '/LAURENCE-BAGAAN_RESUME.pdf',
   location: 'Philippines',
   email: 'laurencejan1431@gmail.com',
   phone: '',
