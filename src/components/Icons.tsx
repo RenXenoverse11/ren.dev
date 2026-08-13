@@ -80,6 +80,49 @@ export function MapPinIcon({ className }: IconProps) {
   )
 }
 
+export function WindowIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18" />
+    </svg>
+  )
+}
+
+export function DatabaseIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <ellipse cx="12" cy="5" rx="8" ry="3" />
+      <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+    </svg>
+  )
+}
+
+export function TerminalIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="2.5" y="4" width="19" height="16" rx="2" />
+      <path d="m7 9 3 3-3 3M13 15h4" />
+    </svg>
+  )
+}
+
+export function PhoneIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="6" y="2" width="12" height="20" rx="2.5" />
+      <path d="M11 18.5h2" />
+    </svg>
+  )
+}
+
+export const categoryIcons = {
+  window: WindowIcon,
+  database: DatabaseIcon,
+  terminal: TerminalIcon,
+  phone: PhoneIcon,
+}
+
 export function GraduationCapIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

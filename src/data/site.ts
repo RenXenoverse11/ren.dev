@@ -3,15 +3,19 @@
  * Edit this file to update the portfolio — no component changes needed.
  */
 
-export type Skill = {
+export type Tech = {
   name: string
-  level: number // 0-100, drives the progress bar width
+  /** Key into `brandIcons`. Omit when the tool has no brand mark. */
+  slug?: string
+  /** Shown in place of a missing brand mark. */
+  glyph?: string
 }
 
 export type SkillGroup = {
   title: string
-  icon: string
-  skills: Skill[]
+  description: string
+  icon: 'window' | 'database' | 'terminal' | 'phone'
+  items: Tech[]
 }
 
 export type Project = {
@@ -84,42 +88,58 @@ export const about = {
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
-    icon: '🎨',
-    skills: [
-      { name: 'React / Next.js', level: 92 },
-      { name: 'TypeScript', level: 88 },
-      { name: 'HTML5 & CSS3', level: 95 },
-      { name: 'Tailwind CSS', level: 90 },
+    description: 'Building interactive and responsive UI.',
+    icon: 'window',
+    items: [
+      { name: 'React 19', slug: 'react' },
+      { name: 'TypeScript', slug: 'typescript' },
+      { name: 'Svelte 5', slug: 'svelte' },
+      { name: 'Angular', slug: 'angular' },
+      { name: 'Vue.js', slug: 'vuedotjs' },
+      { name: 'jQuery', slug: 'jquery' },
+      { name: 'Tailwind CSS', slug: 'tailwindcss' },
+      { name: 'Three.js', slug: 'threedotjs' },
+      { name: 'Framer Motion', slug: 'framer' },
     ],
   },
   {
-    title: 'Backend',
-    icon: '⚙️',
-    skills: [
-      { name: 'Node.js / Express', level: 88 },
-      { name: 'PHP / Laravel', level: 80 },
-      { name: 'PostgreSQL / MySQL', level: 85 },
-      { name: 'REST & GraphQL APIs', level: 86 },
+    title: 'Backend & Data',
+    description: 'APIs, databases, and serverless platforms.',
+    icon: 'database',
+    items: [
+      { name: 'Node.js', slug: 'nodedotjs' },
+      { name: 'Laravel', slug: 'laravel' },
+      { name: 'Supabase', slug: 'supabase' },
+      { name: 'PostgreSQL', slug: 'postgresql' },
+      { name: 'Google Apps Script', slug: 'googleappsscript' },
+      { name: 'Google Sheets API', slug: 'googlesheets' },
+      { name: 'REST APIs', glyph: '{}' },
+    ],
+  },
+  {
+    title: 'Tools & Infra',
+    description: 'Developer tools and cloud infrastructure.',
+    icon: 'terminal',
+    items: [
+      { name: 'Vite', slug: 'vite' },
+      { name: 'Git', slug: 'git' },
+      { name: 'GitHub', slug: 'github' },
+      { name: 'Vercel', slug: 'vercel' },
+      { name: 'Cloudflare', slug: 'cloudflare' },
+      { name: 'OSRM', glyph: 'O' },
+      { name: 'Mapbox', slug: 'mapbox' },
+      { name: 'Leaflet', slug: 'leaflet' },
     ],
   },
   {
     title: 'Mobile',
-    icon: '📱',
-    skills: [
-      { name: 'React Native', level: 87 },
-      { name: 'Flutter / Dart', level: 78 },
-      { name: 'Firebase', level: 84 },
-      { name: 'App Store Deployment', level: 75 },
-    ],
-  },
-  {
-    title: 'Tools',
-    icon: '🧰',
-    skills: [
-      { name: 'Git & GitHub', level: 93 },
-      { name: 'Docker', level: 72 },
-      { name: 'Figma', level: 80 },
-      { name: 'Vite / Webpack', level: 82 },
+    description: 'Cross-platform and native development.',
+    icon: 'phone',
+    items: [
+      { name: 'React Native', slug: 'react' },
+      { name: 'Flutter', slug: 'flutter' },
+      { name: 'Dart', slug: 'dart' },
+      { name: 'Android Studio', slug: 'androidstudio' },
     ],
   },
 ]

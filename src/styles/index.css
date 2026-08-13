@@ -645,77 +645,128 @@ textarea {
 /* ============================================================
    Skills
    ============================================================ */
-.skills__grid {
+.skills__rows {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 20px;
 }
 
-.skill-card {
-  padding: 28px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+/* Each category is a row: who/what on the left, the stack on the right. */
+.skill-row {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  padding: 28px 32px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.skill-card:hover {
-  transform: translateY(-6px);
+/* Accent rail down the leading edge. */
+.skill-row::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--brand);
+}
+
+.skill-row:hover {
   box-shadow: var(--shadow-lg);
 }
 
-.skill-card__head {
+.skill-row__head {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-.skill-card__icon {
+.skill-row__icon {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: var(--brand-tint);
-  font-size: 1.3rem;
+  color: var(--brand-deep);
 }
 
-.skill-card__title {
-  font-size: 1.15rem;
+:root[data-theme='dark'] .skill-row__icon {
+  color: var(--brand);
 }
 
-.skill-card__list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 18px;
+.skill-row__icon svg {
+  width: 20px;
+  height: 20px;
 }
 
-.skill__row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+.skill-row__title {
+  font-size: 1.05rem;
 }
 
-.skill__name {
-  font-weight: 500;
-}
-
-.skill__level {
+.skill-row__description {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
-.skill__track {
-  height: 8px;
-  border-radius: 999px;
-  background: var(--brand-tint);
-  overflow: hidden;
+.skill-row__items {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
 }
 
-.skill__bar {
-  display: block;
-  height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-strong) 100%);
+.tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--heading);
+  transition: border-color 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+}
+
+.tech:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  background: var(--surface);
+}
+
+/* Brand color per mark, with a light substitute in dark mode for the marks
+   that are near-black (GitHub, Vercel, three.js). */
+.tech__icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--icon, currentColor);
+}
+
+:root[data-theme='dark'] .tech__icon {
+  color: var(--icon-dark, var(--icon, currentColor));
+}
+
+.tech__glyph {
+  display: grid;
+  white-space: nowrap;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-deep);
+}
+
+:root[data-theme='dark'] .tech__glyph {
+  color: var(--brand);
 }
 
 /* ============================================================
@@ -986,6 +1037,12 @@ textarea {
 
   .about__layout {
     gap: 32px;
+  }
+
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px;
   }
 
   /* Stacked, the hero is taller than the viewport. Centering it inside a
