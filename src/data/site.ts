@@ -146,58 +146,28 @@ export const skillGroups: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    title: 'ShopFlow — E-Commerce Platform',
+    title: 'MindaRide',
     description:
-      'A full featured storefront with product search, cart, Stripe checkout, and an admin dashboard for inventory and orders.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-    cover: '🛒',
-    demo: '#',
-    repo: '#',
+      'A bus schedule and fare finder for Mindanao. Riders compare fares, schedules, operators, and travel times across overland routes on a live map, switch between regular and student/PWD/senior fares, and ask an in-app assistant questions in Tagalog, Bisaya, or English.',
+    tags: ['React 19', 'TanStack Start', 'TypeScript', 'Supabase', 'Mapbox', 'Capacitor'],
+    cover: '🚌',
+    demo: 'https://mindaride.online',
   },
   {
-    title: 'TaskMate — Team Task Manager',
+    title: 'Internship Management System',
     description:
-      'Real-time collaborative task board with drag-and-drop columns, comments, and role-based permissions for small teams.',
-    tags: ['React', 'Node.js', 'Socket.IO', 'MongoDB'],
-    cover: '✅',
-    demo: '#',
-    repo: '#',
-  },
-  {
-    title: 'FitTrack — Fitness Mobile App',
-    description:
-      'Cross-platform workout tracker with offline-first sync, progress charts, and push reminders to keep streaks alive.',
-    tags: ['React Native', 'Expo', 'Firebase'],
-    cover: '💪',
-    demo: '#',
-    repo: '#',
-  },
-  {
-    title: 'CampusHub — School Portal',
-    description:
-      'Student portal for enrollment, grades, and announcements, with a Laravel API and a role-aware React front end.',
-    tags: ['Laravel', 'React', 'MySQL'],
+      'An OJT platform for interns and supervisors: clock in/out with attendance PDF export, task and work logs, absence and overtime requests, project submissions with milestones, and document folders with per-user access.',
+    tags: ['Svelte 5', 'Tailwind CSS', 'Google Apps Script', 'Google Sheets', 'Chart.js'],
     cover: '🎓',
-    demo: '#',
-    repo: '#',
+    repo: 'https://github.com/RenXenoverse11/IMS',
   },
   {
-    title: 'DevBlog — Headless CMS Blog',
+    title: 'KPI Monitoring Dashboard',
     description:
-      'Statically generated blog with MDX content, full-text search, reading time estimates, and a perfect Lighthouse score.',
-    tags: ['Next.js', 'MDX', 'Vercel'],
-    cover: '📝',
-    demo: '#',
-    repo: '#',
-  },
-  {
-    title: 'WeatherNow — Forecast Dashboard',
-    description:
-      'Clean weather dashboard with location search, hourly and 7-day forecasts, and animated condition backgrounds.',
-    tags: ['React', 'TypeScript', 'OpenWeather API'],
-    cover: '🌤️',
-    demo: '#',
-    repo: '#',
+      'An operations dashboard tracking KPIs across several network systems, each with its own view, editable targets, and planned-maintenance tracking. Runs as a Google Apps Script web app over Google Sheets, so the team keeps working in the tool they already use.',
+    tags: ['Google Apps Script', 'Google Sheets', 'JavaScript', 'Bootstrap', 'GSAP'],
+    cover: '📊',
+    repo: 'https://github.com/RenXenoverse11/kpi-monitoring',
   },
 ]
 
