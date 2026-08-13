@@ -175,7 +175,7 @@ export const projects: Project[] = [
 export const socials: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/RenXenoverse11', icon: 'github' },
   { label: 'LinkedIn', href: '#', icon: 'linkedin' },
-  { label: 'Facebook', href: '#', icon: 'facebook' },
+  { label: 'Facebook', href: 'https://www.facebook.com/renxen11/', icon: 'facebook' },
   { label: 'Email', href: `mailto:${site.email}`, icon: 'mail' },
 ]
 
