@@ -64,6 +64,11 @@ export const about = {
   /** Pulled out of the prose into its own card beside the bio. */
   featured: {
     label: 'Featured project',
+    /**
+     * Logo served from `public/`. Falls back to the emoji below if the file
+     * is missing, so the card never shows a broken image.
+     */
+    logo: '/mindaride.png',
     icon: '🚍',
     title: 'MindaRide',
     body: "A transportation platform I designed and developed to help commuters in Mindanao search routes, check fares, and plan their trips more efficiently. It's the project I'm most proud of.",

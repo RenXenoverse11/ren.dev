@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { about, site } from '../data/site'
 import { SectionHeading } from './SectionHeading'
 
 export function About() {
+  const [logoFailed, setLogoFailed] = useState(false)
+  const showLogo = Boolean(about.featured.logo) && !logoFailed
+
   return (
     <section className="section about" id="about">
       <div className="container">
@@ -19,8 +23,20 @@ export function About() {
           </div>
 
           <aside className="about__featured card">
-            <span className="about__featured-icon" aria-hidden>
-              {about.featured.icon}
+            <span
+              className={`about__featured-icon${showLogo ? ' about__featured-icon--logo' : ''}`}
+              aria-hidden
+            >
+              {showLogo ? (
+                <img
+                  src={about.featured.logo}
+                  alt=""
+                  loading="lazy"
+                  onError={() => setLogoFailed(true)}
+                />
+              ) : (
+                about.featured.icon
+              )}
             </span>
             <span className="about__featured-label">{about.featured.label}</span>
             <h3 className="about__featured-title">{about.featured.title}</h3>
