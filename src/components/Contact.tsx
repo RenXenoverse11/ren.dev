@@ -166,7 +166,7 @@ export function Contact() {
                 rows={6}
                 value={fields.message}
                 onChange={update('message')}
-                placeholder="Tell me about your project..."
+                placeholder="Your message"
                 aria-invalid={Boolean(errors.message)}
               />
               {errors.message ? <span className="field__error">{errors.message}</span> : null}
