@@ -919,18 +919,37 @@ textarea {
   justify-content: safe center;
 }
 
+/* Weekday labels in the first column, month labels in the first row, the
+   calendar itself in the corner they meet. */
 .contributions__grid-wrap {
   display: inline-grid;
-  gap: 6px;
+  grid-template-columns: auto auto;
+  gap: 6px 8px;
 }
 
 .contributions__months {
+  grid-column: 2;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 14px;
   font-size: 0.72rem;
   color: var(--text-muted);
 }
+
+/* Rows 2, 4 and 6 of the seven-row calendar — Monday, Wednesday, Friday. */
+.contributions__weekdays {
+  display: grid;
+  grid-template-rows: repeat(7, 11px);
+  gap: 3px;
+  align-content: start;
+  font-size: 0.72rem;
+  line-height: 11px;
+  color: var(--text-muted);
+}
+
+.contributions__weekdays span:nth-child(1) { grid-row: 2; }
+.contributions__weekdays span:nth-child(2) { grid-row: 4; }
+.contributions__weekdays span:nth-child(3) { grid-row: 6; }
 
 .contributions__grid {
   display: grid;

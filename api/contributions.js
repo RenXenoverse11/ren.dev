@@ -2,9 +2,12 @@
  * Serverless endpoint returning the GitHub contribution calendar.
  *
  * GitHub's own page for this is public and needs no token:
- *   https://github.com/users/<login>/contributions
+ *   https://github.com/users/<login>/contributions?from=…&to=…
  * It cannot be fetched from the browser (no CORS headers), so the request is
  * made here and the parsed result is served same-origin.
+ *
+ * The range is a calendar year — the same view GitHub's own year tabs show —
+ * rather than a rolling window of the last 365 days.
  *
  * The response is cached at the edge for an hour — the calendar only changes
  * when a commit lands, and this keeps GitHub from being hit on every visit.
@@ -60,9 +63,20 @@ export function parseCalendar(html) {
   return { total, weeks, days: days.length }
 }
 
-export default async function handler(_request, response) {
+export default async function handler(request, response) {
+  const now = new Date()
+  const requested = Number(new URL(request.url, 'http://localhost').searchParams.get('year'))
+  const year =
+    Number.isInteger(requested) && requested >= 2008 && requested <= now.getUTCFullYear()
+      ? requested
+      : now.getUTCFullYear()
+
+  const url =
+    `https://github.com/users/${LOGIN}/contributions` +
+    `?from=${year}-01-01&to=${year}-12-31`
+
   try {
-    const upstream = await fetch(`https://github.com/users/${LOGIN}/contributions`, {
+    const upstream = await fetch(url, {
       headers: {
         'User-Agent': 'renxen.dev',
         'X-Requested-With': 'XMLHttpRequest',
@@ -82,7 +96,7 @@ export default async function handler(_request, response) {
     }
 
     response.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400')
-    response.status(200).json({ login: LOGIN, ...data })
+    response.status(200).json({ login: LOGIN, year, ...data })
   } catch (error) {
     response.status(502).json({ error: String(error) })
   }

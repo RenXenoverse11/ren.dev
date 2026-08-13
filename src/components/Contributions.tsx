@@ -4,6 +4,7 @@ type Day = { date: string; level: number; count: number | null } | null
 
 type Calendar = {
   login: string
+  year: number
   total: number | null
   weeks: Day[][]
 }
@@ -67,10 +68,10 @@ export function Contributions() {
             <h2 className="contributions__title">
               {calendar.total !== null ? (
                 <>
-                  <strong>{calendar.total.toLocaleString()}</strong> contributions in the last year
+                  <strong>{calendar.total.toLocaleString()}</strong> contributions in {calendar.year}
                 </>
               ) : (
-                'GitHub activity'
+                `GitHub activity in ${calendar.year}`
               )}
             </h2>
             <a
@@ -91,7 +92,17 @@ export function Contributions() {
                 ))}
               </div>
 
-              <div className="contributions__grid" role="img" aria-label="GitHub contribution calendar">
+              <div className="contributions__weekdays" aria-hidden>
+                <span>Mon</span>
+                <span>Wed</span>
+                <span>Fri</span>
+              </div>
+
+              <div
+                className="contributions__grid"
+                role="img"
+                aria-label={`GitHub contribution calendar for ${calendar.year}`}
+              >
                 {calendar.weeks.map((week, weekIndex) =>
                   week.map((day, dayIndex) =>
                     day ? (
