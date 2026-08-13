@@ -963,12 +963,34 @@ textarea {
   }
 
   .hero__inner {
-    gap: 48px;
+    gap: 40px;
+  }
+
+  /* Stacked, the hero is taller than the viewport. Centering it inside a
+     100vh box made the content overflow past the padding, pushing the photo
+     up under the fixed navbar — so let the section grow with its content.
+     Needs .section.hero: the hero carries both classes, and the .section
+     padding in the 768px block would otherwise win on source order and
+     leave a top gap exactly the height of the navbar. */
+  .section.hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-block: calc(var(--nav-height) + 40px) 72px;
   }
 
   .hero__photo-wrap {
     order: -1;
-    width: min(300px, 80%);
+    width: min(260px, 68%);
+  }
+
+  /* Smaller offsets keep the green panel from running off-screen. */
+  .hero__photo-backdrop {
+    inset: -10px -10px 10px 10px;
+  }
+
+  /* The floating squares land on top of the copy at this width. */
+  .hero__squares {
+    display: none;
   }
 
   .footer__inner {
@@ -1018,6 +1040,16 @@ textarea {
 
   .field-row {
     grid-template-columns: 1fr;
+  }
+}
+
+/* On the narrowest phones the two hero buttons wrap onto separate rows and
+   read as two unrelated blocks. Trimming the padding keeps them paired. */
+@media (max-width: 430px) {
+  .hero__buttons .button {
+    padding-inline: 18px;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 }
 
