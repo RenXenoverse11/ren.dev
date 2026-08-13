@@ -542,6 +542,29 @@ textarea {
   margin-top: 16px;
 }
 
+.about__education {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.about__education strong {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.about__education-icon {
+  flex: none;
+  width: 19px;
+  height: 19px;
+  color: var(--brand);
+}
+
 .about__featured {
   position: relative;
   overflow: hidden;

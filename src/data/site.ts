@@ -61,6 +61,12 @@ export const about = {
     'My experience includes developing responsive web applications, cross-platform mobile apps, and scalable backend systems. I focus on creating products that are fast, accessible, maintainable, and enjoyable to use.',
     "I'm constantly learning new technologies, improving my craft, and looking for opportunities to build meaningful products that solve real problems.",
   ],
+  /** Shown as a credential line under the bio. Set `year` to '' to hide it. */
+  education: {
+    degree: 'BS Computer Engineering',
+    school: 'University of Mindanao',
+    year: '',
+  },
   /** Pulled out of the prose into its own card beside the bio. */
   featured: {
     label: 'Featured project',

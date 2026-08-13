@@ -80,6 +80,15 @@ export function MapPinIcon({ className }: IconProps) {
   )
 }
 
+export function GraduationCapIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M22 10 12 5 2 10l10 5 10-5z" />
+      <path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5" />
+    </svg>
+  )
+}
+
 export function GitHubIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width={20} height={20} fill="currentColor" className={className} aria-hidden>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { about, site } from '../data/site'
+import { GraduationCapIcon } from './Icons'
 import { SectionHeading } from './SectionHeading'
 
 export function About() {
@@ -20,6 +21,14 @@ export function About() {
                 {paragraph}
               </p>
             ))}
+
+            <p className="about__education">
+              <GraduationCapIcon className="about__education-icon" />
+              <span>
+                <strong>{about.education.degree}</strong> — {about.education.school}
+                {about.education.year ? `, ${about.education.year}` : ''}
+              </span>
+            </p>
           </div>
 
           <aside className="about__featured card">
