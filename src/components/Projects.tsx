@@ -1,7 +1,32 @@
-import { projects } from '../data/site'
+import { useState } from 'react'
+import { projects, type Project } from '../data/site'
 import { Contributions } from './Contributions'
 import { ExternalLinkIcon, GitHubIcon } from './Icons'
 import { SectionHeading } from './SectionHeading'
+
+/** Screenshot when one is present, gradient + emoji until then. */
+function ProjectCover({ project }: { project: Project }) {
+  const [failed, setFailed] = useState(false)
+
+  if (project.image && !failed) {
+    return (
+      <div className="project__cover project__cover--image">
+        <img
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      </div>
+    )
+  }
+
+  return (
+    <div className="project__cover" aria-hidden>
+      <span>{project.cover}</span>
+    </div>
+  )
+}
 
 export function Projects() {
   return (
@@ -12,9 +37,7 @@ export function Projects() {
         <div className="projects__grid">
           {projects.map((project) => (
             <article key={project.title} className="project card">
-              <div className="project__cover" aria-hidden>
-                <span>{project.cover}</span>
-              </div>
+              <ProjectCover project={project} />
 
               <div className="project__body">
                 <h3 className="project__title">{project.title}</h3>
