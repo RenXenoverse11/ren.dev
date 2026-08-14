@@ -803,7 +803,6 @@ textarea {
 }
 
 .project {
-  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -843,39 +842,6 @@ textarea {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-}
-
-.project__status {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 11px 5px 9px;
-  border-radius: 999px;
-  background: var(--brand);
-  color: #06281a;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  box-shadow: var(--shadow-sm);
-}
-
-/* Small pulsing dot, so "Live" reads as a state rather than a label. */
-.project__status::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #06281a;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
 }
 
 .project__body {
