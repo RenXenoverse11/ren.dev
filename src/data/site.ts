@@ -180,6 +180,18 @@ export const projects: Project[] = [
     demo: 'https://script.google.com/macros/s/AKfycbwIZ_koIHSEcOIdf-bt2-ngz5bmenqh7FJ04bnLnoWU43Iylb6YyoPmI1qLXCeZx23h/exec',
     repo: 'https://github.com/RenXenoverse11/kpi-monitoring',
   },
+  {
+    title: 'First Aid Adventure',
+    description: [
+      'A thesis project built with two teammates: an interactive first-aid learning system for grade-school kids, running on a custom-built wooden arcade cabinet powered by a Raspberry Pi.',
+      'Kids play through grade-level modules on a fullscreen Tkinter interface with audio guidance, while a camera and a TensorFlow Lite model check their hands-on first-aid technique in real time. Progress and scores are tracked per user in SQLite.',
+      'I worked on the application logic, the Tkinter interface, and the camera-based detection pipeline.',
+    ],
+    tags: ['Python', 'Tkinter', 'OpenCV', 'TensorFlow Lite', 'Raspberry Pi', 'SQLite'],
+    cover: '\u{1FA79}',
+    image: '/projects/first-aid-adventure.webp',
+    repo: 'https://github.com/RenXenoverse11/first-aid-thesis',
+  },
 ]
 
 export const socials: SocialLink[] = [

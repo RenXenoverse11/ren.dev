@@ -7,6 +7,7 @@ Screenshots for the project cards, referenced by `image` in `src/data/site.ts`.
 | `mindaride.webp` | MindaRide |
 | `IMS-dashboard.webp` | Internship Management System |
 | `tsi-kpi-dashboard.webp` | KPI Monitoring Dashboard |
+| `first-aid-adventure.webp` | First Aid Adventure |
 
 - The frame is **16:9** and the image is cropped from the top, so put the
   interesting part of the screen near the top of the shot.

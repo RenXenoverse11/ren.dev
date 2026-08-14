@@ -796,10 +796,20 @@ textarea {
 /* ============================================================
    Projects
    ============================================================ */
+/* Flexbox rather than CSS grid: with 4 cards at this width, a grid puts 3
+   per row and strands the 4th alone in the leftmost column, with empty
+   space stretching to the right of it. Flex-wrap + centering pulls a
+   leftover row's cards to the middle instead. */
 .projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
+}
+
+.projects__grid .project {
+  flex: 1 1 300px;
+  max-width: 420px;
 }
 
 .project {
