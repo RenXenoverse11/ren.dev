@@ -1263,10 +1263,55 @@ textarea {
     gap: 32px;
   }
 
+  .skills__rows {
+    gap: 14px;
+  }
+
   .skill-row {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 24px;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .skill-row__head {
+    gap: 10px;
+  }
+
+  .skill-row__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .skill-row__icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .skill-row__title {
+    font-size: 0.98rem;
+  }
+
+  .skill-row__description {
+    margin-top: 2px;
+    font-size: 0.82rem;
+  }
+
+  .skill-row__items {
+    gap: 7px;
+  }
+
+  .tech {
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+
+  .tech__icon,
+  .tech__glyph {
+    width: 15px;
+    height: 15px;
   }
 
   /* Stacked, the hero is taller than the viewport. Centering it inside a
