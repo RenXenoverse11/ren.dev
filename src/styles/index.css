@@ -1366,6 +1366,60 @@ textarea {
   }
 }
 
+/* Contact on a phone: three layers of intro, then a form with desktop-sized
+   gaps, ran past 1400px. The copy stays; the spacing tightens, and the social
+   row goes — it repeats the footer's, a few hundred pixels below. */
+@media (max-width: 768px) {
+  .contact .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .contact__heading {
+    font-size: 1.35rem;
+  }
+
+  .contact__text {
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+
+  .contact__details {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .contact__icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact__socials {
+    display: none;
+  }
+
+  /* The grid gap already separates the info block from the form; a margin on
+     top of it doubled the space. */
+  .contact__grid {
+    gap: 24px;
+  }
+
+  .contact__form {
+    padding: 22px 20px;
+    gap: 14px;
+  }
+
+  /* The rows attribute sets an explicit height, so a min-height cannot pull
+     the box in — height does. */
+  .field textarea {
+    height: 108px;
+    min-height: 108px;
+  }
+
+  .contact.section {
+    padding-block: 56px;
+  }
+}
+
 /* The footer nav repeats the burger menu on phones, so it goes; what is left
    is trimmed down to a signature rather than a second landing area. */
 @media (max-width: 768px) {
