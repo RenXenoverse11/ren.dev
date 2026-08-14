@@ -15,6 +15,7 @@ function ProjectCover({ project }: { project: Project }) {
           src={project.image}
           alt={`${project.title} screenshot`}
           loading="lazy"
+          style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
           onError={() => setFailed(true)}
         />
       </div>

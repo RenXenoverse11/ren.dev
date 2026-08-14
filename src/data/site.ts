@@ -27,6 +27,12 @@ export type Project = {
   repo?: string
   /** Screenshot served from `public/projects/`. Falls back to `cover`. */
   image?: string
+  /**
+   * CSS object-position for `image` (default 'top center'). The cover is a
+   * fixed 16:9 frame; a portrait photo needs this pointed at whatever part
+   * of the shot actually matters, or the crop just keeps the top of it.
+   */
+  imagePosition?: string
   /** Emoji shown on a gradient when there is no screenshot. */
   cover: string
 }
@@ -189,7 +195,10 @@ export const projects: Project[] = [
     ],
     tags: ['Python', 'Tkinter', 'OpenCV', 'TensorFlow Lite', 'Raspberry Pi', 'SQLite'],
     cover: '\u{1FA79}',
-    image: '/projects/first-aid-adventure.webp',
+    /** The actual wooden arcade cabinet, not the in-app splash screen. */
+    image: '/projects/first-aid-cabinet.webp',
+    /** Portrait shot — keep the screen in frame, not the wood above it. */
+    imagePosition: 'center 68%',
     repo: 'https://github.com/RenXenoverse11/first-aid-thesis',
   },
 ]

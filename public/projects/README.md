@@ -7,10 +7,13 @@ Screenshots for the project cards, referenced by `image` in `src/data/site.ts`.
 | `mindaride.webp` | MindaRide |
 | `IMS-dashboard.webp` | Internship Management System |
 | `tsi-kpi-dashboard.webp` | KPI Monitoring Dashboard |
-| `first-aid-adventure.webp` | First Aid Adventure |
+| `first-aid-cabinet.webp` | First Aid Adventure |
 
-- The frame is **16:9** and the image is cropped from the top, so put the
-  interesting part of the screen near the top of the shot.
+- The frame is **16:9** and the image is cropped from the top by default —
+  fine for a browser screenshot, wrong for a portrait photo like
+  `first-aid-cabinet.webp`. Set `imagePosition` on that project in
+  `src/data/site.ts` (a CSS `object-position` value) to point the crop at
+  whatever part of the shot actually matters.
 - Drop a new PNG or JPG here, then run the optimizer — it resizes to 1200px
   wide, converts to WebP, and deletes the original:
 
