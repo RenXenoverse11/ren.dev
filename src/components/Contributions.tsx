@@ -64,7 +64,7 @@ export function Contributions() {
     <div className="contributions" id="activity">
       <div className="contributions__card card">
           <div className="contributions__head">
-            <h2 className="contributions__title">
+            <h3 className="contributions__title">
               {calendar.total !== null ? (
                 <>
                   <strong>{calendar.total.toLocaleString()}</strong> contributions in {calendar.year}
@@ -72,7 +72,7 @@ export function Contributions() {
               ) : (
                 `GitHub activity in ${calendar.year}`
               )}
-            </h2>
+            </h3>
             <a
               className="contributions__link"
               href={`https://github.com/${calendar.login}`}
