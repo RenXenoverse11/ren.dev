@@ -1366,6 +1366,34 @@ textarea {
   }
 }
 
+/* The footer nav repeats the burger menu on phones, so it goes; what is left
+   is trimmed down to a signature rather than a second landing area. */
+@media (max-width: 768px) {
+  .footer {
+    padding-block: 40px 20px;
+  }
+
+  .footer__links {
+    display: none;
+  }
+
+  .footer__inner {
+    gap: 20px;
+  }
+
+  .footer__tagline {
+    margin-top: 10px;
+    font-size: 0.85rem;
+  }
+
+  .footer__bottom {
+    margin-top: 24px;
+    padding-top: 16px;
+    gap: 4px;
+    font-size: 0.78rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
