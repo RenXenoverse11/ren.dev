@@ -228,22 +228,32 @@ textarea {
   transform: translateY(-3px);
 }
 
+/* No box — just the glyph. The 42px square stays for the tap target, which
+   should not shrink to the size of the icon. */
 .icon-button {
   display: grid;
   place-items: center;
   width: 42px;
   height: 42px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
+  border: 0;
+  background: none;
+  border-radius: var(--radius);
   color: var(--heading);
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .icon-button:hover {
-  background: var(--brand-tint);
-  transform: translateY(-1px);
+  color: var(--brand-deep);
+}
+
+:root[data-theme='dark'] .icon-button:hover {
+  color: var(--brand);
+}
+
+.icon-button svg {
+  width: 22px;
+  height: 22px;
 }
 
 /* ============================================================
