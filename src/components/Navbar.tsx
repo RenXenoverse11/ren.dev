@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { navLinks } from '../data/site'
+import { navLinks, site } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import type { Theme } from '../hooks/useTheme'
-import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from './Icons'
+import { CloseIcon, DownloadIcon, MenuIcon, MoonIcon, SunIcon } from './Icons'
 import { Logo } from './Logo'
 
 const sectionIds = navLinks.map((link) => link.href.slice(1))
@@ -51,6 +51,15 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
         </nav>
 
         <div className="navbar__actions">
+          <a
+            className="icon-button"
+            href={site.resume}
+            download
+            title="Download resume (PDF)"
+            aria-label="Download resume (PDF)"
+          >
+            <DownloadIcon />
+          </a>
           <button
             type="button"
             className="icon-button"

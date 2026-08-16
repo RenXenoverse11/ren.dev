@@ -19,6 +19,10 @@ wordmark is split from `site.brand`, so renaming the brand is a one-line change.
 - `favicon.svg` is the same mark in brand green on a dark tile.
 - Set `showWordmark: false` in `src/data/site.ts` to show the mark on its own.
 
-## Your CV
+## Your resume
 
-Drop a `resume.pdf` here to make the "Download CV" button in the About section work.
+`LAURENCE-BAGAAN_RESUME.pdf`, referenced by `site.resume` in `src/data/site.ts`. That
+filename is what lands in a visitor's downloads folder, so it's set on purpose rather
+than a generic `resume.pdf`. Both the navbar's download icon and the About section's
+"Download Resume" button point at this same field — swap the file and update
+`site.resume` together if you ever rename it.

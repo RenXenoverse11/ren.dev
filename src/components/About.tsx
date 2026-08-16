@@ -58,7 +58,7 @@ export function About() {
             Let's Work Together
           </a>
           <a className="button button--ghost" href={site.resume} download>
-            Download CV
+            Download Resume
           </a>
         </div>
       </div>
