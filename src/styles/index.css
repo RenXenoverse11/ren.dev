@@ -486,6 +486,47 @@ textarea {
   gap: 64px;
 }
 
+.hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 6px 14px 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--heading);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero__availability-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--brand);
+  animation: availability-pulse 2s ease-in-out infinite;
+}
+
+@keyframes availability-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--brand-tint);
+  }
+  50% {
+    box-shadow: 0 0 0 5px var(--brand-tint);
+  }
+}
+
+/* Not currently open to work: the dot goes gray and holds still rather
+   than announcing availability that isn't there. */
+.hero__availability--away .hero__availability-dot {
+  background: var(--text-muted);
+  animation: none;
+}
+
 .hero__title {
   font-size: clamp(2.6rem, 6vw, 4.5rem);
   font-weight: 800;

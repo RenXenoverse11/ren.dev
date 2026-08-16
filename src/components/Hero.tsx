@@ -56,6 +56,13 @@ export function Hero() {
 
       <div className="container hero__inner">
         <div className="hero__copy">
+          <span
+            className={`hero__availability${site.availability.available ? '' : ' hero__availability--away'}`}
+          >
+            <span className="hero__availability-dot" aria-hidden />
+            {site.availability.label}
+          </span>
+
           <h1 className="hero__title">
             {site.greeting} <span className="hero__name">{site.name}</span>
           </h1>

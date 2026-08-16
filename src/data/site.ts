@@ -51,6 +51,15 @@ export const site = {
   name: 'Laurence Jan Bagaan',
   greeting: "Hello, I am",
   role: 'Full-Stack Web and Mobile Developer',
+  /**
+   * Status badge above the hero heading. Update `label` as your situation
+   * changes — e.g. 'Open to full-time roles' — or set `available: false` to
+   * swap the dot to gray and drop the pulse.
+   */
+  availability: {
+    available: true,
+    label: 'Available for work',
+  },
   tagline:
     'Building responsive web and mobile experiences with clean design, modern technology, and reliable engineering.',
   /**
