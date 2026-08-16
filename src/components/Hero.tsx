@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { site, socials } from '../data/site'
-import { ArrowDownIcon, MailIcon, socialIcons } from './Icons'
+import { useClock } from '../hooks/useClock'
+import { ArrowDownIcon, ClockIcon, MailIcon, socialIcons } from './Icons'
 
 /** Decorative squares scattered behind the hero, matching the reference design. */
 const squares = [
@@ -32,6 +33,8 @@ function initialsOf(name: string) {
 export function Hero() {
   const [photoFailed, setPhotoFailed] = useState(false)
   const initials = useMemo(() => initialsOf(site.name), [])
+  const now = useClock()
+  const timeLabel = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
 
   return (
     <section className="hero section" id="home">
@@ -85,6 +88,13 @@ export function Hero() {
               )
             })}
           </div>
+
+          {/* Reads the visitor's own device clock, not mine — a small "you're
+              looking at this live" touch rather than a timezone signal. */}
+          <p className="hero__clock">
+            <ClockIcon />
+            Your local time is <strong>{timeLabel}</strong>
+          </p>
         </div>
 
         <div className="hero__photo-wrap">

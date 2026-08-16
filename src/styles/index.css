@@ -466,6 +466,32 @@ textarea {
   gap: 12px;
 }
 
+.hero__clock {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__clock svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  color: var(--brand-deep);
+}
+
+:root[data-theme='dark'] .hero__clock svg {
+  color: var(--brand);
+}
+
+.hero__clock strong {
+  font-weight: 600;
+  color: var(--heading);
+}
+
 .hero__photo-wrap {
   position: relative;
   justify-self: center;
