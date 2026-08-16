@@ -676,22 +676,11 @@ textarea {
 
 /* Each category is a row: who/what on the left, the stack on the right. */
 .skill-row {
-  position: relative;
-  overflow: hidden;
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 32px;
   padding: 28px 32px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Accent rail down the leading edge. */
-.skill-row::before {
-  content: '';
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: var(--brand);
 }
 
 .skill-row:hover {

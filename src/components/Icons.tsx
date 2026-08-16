@@ -80,11 +80,12 @@ export function MapPinIcon({ className }: IconProps) {
   )
 }
 
-export function WindowIcon({ className }: IconProps) {
+/** Angle brackets — reads as "code" at a glance, unlike a plain browser window. */
+export function CodeIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <path d="M3 9h18" />
+      <path d="m9 18-6-6 6-6" />
+      <path d="m15 6 6 6-6 6" />
     </svg>
   )
 }
@@ -117,7 +118,7 @@ export function PhoneIcon({ className }: IconProps) {
 }
 
 export const categoryIcons = {
-  window: WindowIcon,
+  code: CodeIcon,
   database: DatabaseIcon,
   terminal: TerminalIcon,
   phone: PhoneIcon,

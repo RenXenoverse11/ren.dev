@@ -14,7 +14,7 @@ export type Tech = {
 export type SkillGroup = {
   title: string
   description: string
-  icon: 'window' | 'database' | 'terminal' | 'phone'
+  icon: 'code' | 'database' | 'terminal' | 'phone'
   items: Tech[]
 }
 
@@ -98,7 +98,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
     description: 'Building interactive and responsive UI.',
-    icon: 'window',
+    icon: 'code',
     items: [
       { name: 'React 19', slug: 'react' },
       { name: 'TypeScript', slug: 'typescript' },
