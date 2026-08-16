@@ -76,6 +76,15 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
   -webkit-text-size-adjust: 100%;
+  /* Scroll wheel, trackpad, keyboard, and touch all still work — only the
+     visible track on the page's own edge is hidden. The calendar's
+     horizontal scrollbar in Projects is untouched: that one signals there's
+     more to see, so it stays visible. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
