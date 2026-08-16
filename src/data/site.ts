@@ -78,7 +78,7 @@ export const about = {
   heading: 'About Me',
   subheading: 'Building digital products from idea to reality',
   /** Opening statement, set larger than the paragraphs that follow. */
-  lead: "I'm a full-stack developer who enjoys turning ideas into practical digital products. I work across both design and development — from creating intuitive user interfaces in Figma to building the frontend, backend, APIs, and databases that power them.",
+  lead: "I'm a full-stack developer who enjoys turning ideas into practical digital products. I work across both design and development, from creating intuitive user interfaces in Figma to building the frontend, backend, APIs, and databases that power them.",
   paragraphs: [
     'My experience includes developing responsive web applications, cross-platform mobile apps, and scalable backend systems. I focus on creating products that are fast, accessible, maintainable, and enjoyable to use.',
     "I'm constantly learning new technologies, improving my craft, and looking for opportunities to build meaningful products that solve real problems.",
@@ -88,18 +88,6 @@ export const about = {
     degree: 'BS Computer Engineering',
     school: 'University of Mindanao',
     year: '',
-  },
-  /** Pulled out of the prose into its own card beside the bio. */
-  featured: {
-    label: 'Featured project',
-    /**
-     * Logo served from `public/`. Falls back to the emoji below if the file
-     * is missing, so the card never shows a broken image.
-     */
-    logo: '/mindaride.png',
-    icon: '🚍',
-    title: 'MindaRide',
-    body: "A transportation platform I designed and developed to help commuters in Mindanao search routes, check fares, and plan their trips more efficiently. It's the project I'm most proud of.",
   },
 }
 

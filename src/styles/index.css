@@ -668,24 +668,17 @@ textarea {
 /* ============================================================
    About
    ============================================================ */
-.about__layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 56px;
-  align-items: start;
+.about__body {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: justify;
 }
 
-/* The opening statement carries the section — larger, darker, and set on a
-   shorter measure than the paragraphs under it. */
-.about__lead {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.6;
-  color: var(--heading);
-}
-
-/* Same ink as the lead — size and weight carry the hierarchy instead. */
+.about__lead,
 .about__paragraph {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--heading);
 }
 
@@ -702,6 +695,7 @@ textarea {
   padding-top: 20px;
   border-top: 1px solid var(--border);
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   font-size: 0.92rem;
@@ -718,74 +712,6 @@ textarea {
   width: 19px;
   height: 19px;
   color: var(--brand);
-}
-
-.about__featured {
-  position: relative;
-  overflow: hidden;
-  padding: 32px;
-}
-
-/* Green cap across the top edge, drawn inside the card's rounded corners. */
-.about__featured::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-soft) 100%);
-}
-
-.about__featured-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: var(--brand-tint);
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-/* A real logo brings its own colors, so it sits on a neutral tile rather
-   than the green tint, and is contained so any aspect ratio fits. */
-.about__featured-icon--logo {
-  width: 56px;
-  height: 56px;
-  padding: 6px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-
-.about__featured-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.about__featured-label {
-  display: block;
-  margin-top: 20px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--brand-deep);
-}
-
-:root[data-theme='dark'] .about__featured-label {
-  color: var(--brand-soft);
-}
-
-.about__featured-title {
-  margin-top: 6px;
-  font-size: 1.4rem;
-  letter-spacing: -0.01em;
-}
-
-.about__featured-body {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  color: var(--text-muted);
 }
 
 .about__actions {
@@ -1369,17 +1295,12 @@ textarea {
    ============================================================ */
 @media (max-width: 960px) {
   .hero__inner,
-  .about__layout,
   .contact__grid {
     grid-template-columns: 1fr;
   }
 
   .hero__inner {
     gap: 40px;
-  }
-
-  .about__layout {
-    gap: 32px;
   }
 
   .skills__rows {
