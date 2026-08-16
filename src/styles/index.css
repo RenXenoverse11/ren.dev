@@ -369,6 +369,60 @@ textarea {
   gap: 10px;
 }
 
+/* A small pill rather than the bare-icon treatment used for the theme
+   toggle and burger — this one triggers a download, so it needs a label
+   to say what it does before the click. */
+.navbar__resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px 8px 16px;
+  border: 1px solid var(--brand);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-deep);
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease,
+    transform 0.18s ease;
+}
+
+:root[data-theme='dark'] .navbar__resume {
+  color: var(--brand);
+}
+
+.navbar__resume svg {
+  width: 15px;
+  height: 15px;
+}
+
+.navbar__resume:hover {
+  background: var(--brand-tint);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+/* Icon-only below 420px — the pill's label is the first thing to give up
+   room to the nav wordmark and the theme/burger icons beside it. */
+@media (max-width: 420px) {
+  .navbar__resume {
+    gap: 0;
+    padding: 0;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    border: 0;
+  }
+
+  .navbar__resume span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 .navbar__burger {
   display: none;
 }

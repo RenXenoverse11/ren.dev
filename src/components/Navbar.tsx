@@ -52,12 +52,13 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
         <div className="navbar__actions">
           <a
-            className="icon-button"
+            className="navbar__resume"
             href={site.resume}
             download
             title="Download resume (PDF)"
             aria-label="Download resume (PDF)"
           >
+            <span>Resume</span>
             <DownloadIcon />
           </a>
           <button
