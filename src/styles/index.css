@@ -372,6 +372,11 @@ textarea {
   width: 100%;
 }
 
+/* Only shown in the mobile dropdown — the desktop row stays text-only. */
+.navbar__link-icon {
+  display: none;
+}
+
 .navbar__actions {
   display: flex;
   align-items: center;
@@ -410,29 +415,44 @@ textarea {
   transform: translateY(-1px);
 }
 
-/* Icon-only below 420px — the pill's label is the first thing to give up
-   room to the nav wordmark and the theme/burger icons beside it. */
-@media (max-width: 420px) {
-  .navbar__resume {
-    gap: 0;
-    padding: 0;
-    width: 42px;
-    height: 42px;
-    justify-content: center;
-    border: 0;
+/* Below 480px the logo and the resume pill both trim down rather than the
+   pill giving up its label entirely — "Resume" stays legible on every
+   phone width instead of only becoming an icon once space runs out. */
+@media (max-width: 480px) {
+  .logo {
+    gap: 6px;
   }
 
-  .navbar__resume span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
+  .logo__mark {
+    height: 22px;
+    width: 27.3px;
+  }
+
+  .logo__text {
+    font-size: 1.15rem;
+  }
+
+  .navbar__actions {
+    gap: 6px;
+  }
+
+  .navbar__resume {
+    gap: 5px;
+    padding: 6px 10px 6px 12px;
+    font-size: 0.78rem;
+  }
+
+  .navbar__resume svg {
+    width: 13px;
+    height: 13px;
   }
 }
 
 .navbar__burger {
+  display: none;
+}
+
+.navbar__backdrop {
   display: none;
 }
 
@@ -1395,16 +1415,40 @@ textarea {
     display: grid;
   }
 
+  /* Dims the page behind the panel instead of leaving it floating over
+     live content with nothing to separate the two. Tap anywhere on it
+     to close, same as the X button. */
+  .navbar__backdrop {
+    display: block;
+    position: fixed;
+    inset: var(--nav-height) 0 0 0;
+    z-index: 1;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: rgba(6, 12, 10, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s;
+  }
+
+  .navbar__backdrop--open {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .navbar__links {
     position: fixed;
+    z-index: 2;
     inset: var(--nav-height) 0 auto 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 4px;
-    padding: 18px 24px 26px;
+    padding: 14px 14px 20px;
     background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: var(--shadow-lg);
     transform: translateY(-12px);
     opacity: 0;
     visibility: hidden;
@@ -1417,13 +1461,70 @@ textarea {
     visibility: visible;
   }
 
+  /* A filled row reads better than the desktop underline in a vertical
+     list — each row gets its own icon, rounded hit area, and a tinted
+     background for the active section instead of just colored text. */
   .navbar__link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
     width: 100%;
-    padding-block: 12px;
+    padding: 13px 14px;
+    border-radius: 12px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .navbar__link::after {
+    display: none;
+  }
+
+  .navbar__link:hover {
+    background: var(--surface-2);
+  }
+
+  .navbar__link--active {
+    background: var(--brand-tint);
+  }
+
+  /* Steps in left-to-right one row after another rather than the whole
+     list appearing at once — only while the panel is opening. */
+  .navbar__links--open .navbar__link {
+    animation: navlink-in 0.32s ease forwards;
+    animation-delay: calc(var(--stagger, 0) * 45ms + 60ms);
+  }
+
+  .navbar__link-icon {
+    display: block;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  .navbar__link--active .navbar__link-icon {
+    color: var(--brand-deep);
+  }
+
+  :root[data-theme='dark'] .navbar__link--active .navbar__link-icon {
+    color: var(--brand);
   }
 
   .field-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@keyframes navlink-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

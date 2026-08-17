@@ -1,11 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { navLinks, site } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import type { Theme } from '../hooks/useTheme'
-import { CloseIcon, DownloadIcon, MenuIcon, MoonIcon, SunIcon } from './Icons'
+import {
+  CloseIcon,
+  CodeIcon,
+  DownloadIcon,
+  HomeIcon,
+  LayersIcon,
+  MailIcon,
+  MenuIcon,
+  MoonIcon,
+  SunIcon,
+  UserIcon,
+} from './Icons'
 import { Logo } from './Logo'
 
 const sectionIds = navLinks.map((link) => link.href.slice(1))
+
+/** One icon per section, shown in the mobile dropdown only. */
+const navIcons = {
+  '#home': HomeIcon,
+  '#about': UserIcon,
+  '#skills': CodeIcon,
+  '#projects': LayersIcon,
+  '#contact': MailIcon,
+} as const
 
 type NavbarProps = {
   theme: Theme
@@ -34,20 +54,36 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
   return (
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
+      {/* Dims the page behind the open mobile panel and closes it on tap —
+          the panel used to float over the content with nothing separating
+          the two. Rendered at all widths; CSS only shows it under 768px. */}
+      <button
+        type="button"
+        className={`navbar__backdrop${menuOpen ? ' navbar__backdrop--open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        tabIndex={-1}
+        aria-hidden="true"
+      />
+
       <div className="container navbar__inner">
         <Logo />
 
         <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`navbar__link${activeId === link.href.slice(1) ? ' navbar__link--active' : ''}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link, index) => {
+            const LinkIcon = navIcons[link.href as keyof typeof navIcons]
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`navbar__link${activeId === link.href.slice(1) ? ' navbar__link--active' : ''}`}
+                style={{ '--stagger': index } as CSSProperties}
+                onClick={() => setMenuOpen(false)}
+              >
+                <LinkIcon className="navbar__link-icon" />
+                {link.label}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="navbar__actions">

@@ -81,6 +81,24 @@ export function ExternalLinkIcon({ className }: IconProps) {
   )
 }
 
+export function HomeIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="m3 11 9-8 9 8" />
+      <path d="M5 10v10h14V10" />
+    </svg>
+  )
+}
+
+export function UserIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21c1.6-4 5-6 8-6s6.4 2 8 6" />
+    </svg>
+  )
+}
+
 export function MailIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
