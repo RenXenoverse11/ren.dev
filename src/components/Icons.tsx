@@ -118,11 +118,14 @@ export function DatabaseIcon({ className }: IconProps) {
   )
 }
 
-export function TerminalIcon({ className }: IconProps) {
+/** Stacked layers — reads as "stack/infrastructure", distinct from Mobile's
+    plain rounded rectangle at small sizes, unlike the old terminal-box icon. */
+export function LayersIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
-      <rect x="2.5" y="4" width="19" height="16" rx="2" />
-      <path d="m7 9 3 3-3 3M13 15h4" />
+      <path d="M12 3 21 8l-9 5-9-5 9-5Z" />
+      <path d="m3 12 9 5 9-5" />
+      <path d="m3 16 9 5 9-5" />
     </svg>
   )
 }
@@ -131,6 +134,9 @@ export function PhoneIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
       <rect x="6" y="2" width="12" height="20" rx="2.5" />
+      {/* Front camera dot, so this reads as "phone" rather than a generic
+          card/rectangle at the small size the category tile renders at. */}
+      <circle cx="12" cy="5.3" r="0.8" fill="currentColor" />
       <path d="M11 18.5h2" />
     </svg>
   )
@@ -139,7 +145,7 @@ export function PhoneIcon({ className }: IconProps) {
 export const categoryIcons = {
   code: CodeIcon,
   database: DatabaseIcon,
-  terminal: TerminalIcon,
+  layers: LayersIcon,
   phone: PhoneIcon,
 }
 
