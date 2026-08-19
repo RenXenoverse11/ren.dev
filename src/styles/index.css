@@ -2067,6 +2067,45 @@ textarea {
   }
 }
 
+/* Project cards carry desktop-sized padding and gaps that read as excess
+   whitespace stacked full-width on a phone. */
+@media (max-width: 768px) {
+  .projects__grid {
+    gap: 20px;
+  }
+
+  .project__cover {
+    font-size: 2.4rem;
+  }
+
+  .project__body {
+    padding: 18px;
+  }
+
+  .project__title {
+    font-size: 1.1rem;
+  }
+
+  .project__description {
+    margin-top: 8px;
+    font-size: 0.9rem;
+  }
+
+  .project__description + .project__description {
+    margin-top: 8px;
+  }
+
+  .project__tags {
+    margin-top: 12px;
+    gap: 6px;
+  }
+
+  .project__links {
+    padding-top: 16px;
+    gap: 16px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
