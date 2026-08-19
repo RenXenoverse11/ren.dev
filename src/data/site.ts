@@ -185,8 +185,8 @@ export const projects: Project[] = [
     title: 'Internship Management System',
     description: [
       'IMS is a web-based Internship Management System built for tracking OJT hours, projects, requests, and activity logs for student interns.',
-      "Built with Svelte and deployed on Google Apps Script, using Google Sheets as the database — a lightweight, zero-cost architecture that's fully functional in real-world use. Features a modern dark enterprise UI with dashboard analytics, progress tracking, document management, and role-based views.",
-      'I handled full design and development — UI/UX, frontend, and backend integration.',
+      "Built with Svelte and deployed on Google Apps Script, using Google Sheets as the database. It's a lightweight, zero-cost architecture that's fully functional in real-world use. Features a modern dark enterprise UI with dashboard analytics, progress tracking, document management, and role-based views.",
+      'I handled full design and development: UI/UX, frontend, and backend integration.',
     ],
     tags: ['Svelte', 'Google Apps Script', 'JavaScript', 'Web Design', 'Google Spreadsheets API'],
     cover: '\u{1F393}',
