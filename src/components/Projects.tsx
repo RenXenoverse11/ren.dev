@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { revealDelay } from '../hooks/useReveal'
 import { projects, type Project } from '../data/site'
 import { Contributions } from './Contributions'
 import { ExternalLinkIcon, GitHubIcon } from './Icons'
@@ -36,8 +37,11 @@ export function Projects() {
         <SectionHeading title="Projects" subtitle="A few things I've designed and built" />
 
         <div className="projects__grid">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+          {projects.map((project, index) => (
+            // Stagger across the row rather than the whole list: a row enters
+            // the viewport together, and absolute index would leave the last
+            // cards waiting on a delay earned by cards already scrolled past.
+            <ProjectCard key={project.title} project={project} revealStep={index % 3} />
           ))}
         </div>
 
@@ -47,7 +51,7 @@ export function Projects() {
   )
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, revealStep }: { project: Project; revealStep: number }) {
   const [expanded, setExpanded] = useState(false)
   const paragraphs = Array.isArray(project.description)
     ? project.description
@@ -57,7 +61,7 @@ function ProjectCard({ project }: { project: Project }) {
   const isLong = paragraphs.length > 1 || paragraphs[0].length > 190
 
   return (
-    <article className="project card">
+    <article className="project card" data-reveal style={revealDelay(revealStep)}>
       <ProjectCover project={project} />
 
       <div className="project__body">

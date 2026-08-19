@@ -1,4 +1,5 @@
 import { brandIcons } from '../data/brandIcons'
+import { revealDelay } from '../hooks/useReveal'
 import { skillGroups, type Tech } from '../data/site'
 import { categoryIcons } from './Icons'
 import { SectionHeading } from './SectionHeading'
@@ -49,11 +50,16 @@ export function Skills() {
         <SectionHeading title="Skills" subtitle="Technologies I work with every day" />
 
         <div className="skills__rows">
-          {skillGroups.map((group) => {
+          {skillGroups.map((group, index) => {
             const CategoryIcon = categoryIcons[group.icon]
 
             return (
-              <article key={group.title} className="skill-row card">
+              <article
+                key={group.title}
+                className="skill-row card"
+                data-reveal
+                style={revealDelay(index)}
+              >
                 <div className="skill-row__head">
                   <span className="skill-row__icon" aria-hidden>
                     <CategoryIcon />
