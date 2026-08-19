@@ -9,6 +9,8 @@ export type Tech = {
   slug?: string
   /** Shown in place of a missing brand mark. */
   glyph?: string
+  /** Key into `techBadges` for marks with no single-color brand path (full-color hexagon mark). */
+  badge?: 'csharp' | 'phaser'
 }
 
 export type SkillGroup = {
@@ -152,8 +154,8 @@ export const skillGroups: SkillGroup[] = [
     icon: 'gamepad',
     items: [
       { name: 'Unity', slug: 'unity' },
-      { name: 'C#', glyph: 'C#' },
-      { name: 'Phaser', glyph: 'Ph' },
+      { name: 'C#', badge: 'csharp' },
+      { name: 'Phaser', badge: 'phaser' },
     ],
   },
   {
