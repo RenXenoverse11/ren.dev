@@ -12,7 +12,7 @@ export function BlogIndex() {
           <SectionHeading title="Blog" subtitle="Notes on things I've built" />
 
           {posts.length === 0 ? (
-            <p className="blog__empty">Nothing published yet — check back soon.</p>
+            <p className="blog__empty">Nothing published yet. Check back soon.</p>
           ) : (
             <div className="blog__grid">
               {posts.map((post, index) => (

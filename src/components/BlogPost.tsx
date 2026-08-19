@@ -15,7 +15,7 @@ export function BlogPost() {
   useEffect(() => {
     if (!post) return
     const previous = document.title
-    document.title = `${post.title} — ${site.name}`
+    document.title = `${post.title} | ${site.name}`
     return () => {
       document.title = previous
     }

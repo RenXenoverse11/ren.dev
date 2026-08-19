@@ -1,14 +1,14 @@
 ---
 title: 'Running a real app on Google Sheets as the database'
 date: '2026-08-19'
-summary: 'I built an Internship Management System on Google Apps Script with Google Sheets as the only datastore. It runs in production at zero cost — here is where that works, and where it stops working.'
+summary: 'I built an Internship Management System on Google Apps Script with Google Sheets as the only datastore. It runs in production at zero cost. Here is where that works, and where it stops working.'
 tags: ['Google Apps Script', 'Svelte', 'Architecture']
 readingTime: 6
 ---
 
 Every instinct I had said use a real database. The Internship Management System
 needed to track OJT hours, project assignments, document requests and activity
-logs for a cohort of student interns — that is relational data with real
+logs for a cohort of student interns. That is relational data with real
 constraints, and Postgres is free to start.
 
 I used Google Sheets instead. It has been running in production since, and it
@@ -62,7 +62,7 @@ function getInternLogs(internId) {
 }
 ```
 
-That pattern — one `getValues()`, then work in memory — is most of the
+That pattern, one `getValues()` then work in memory, is most of the
 performance advice for Apps Script. Each call across the Apps Script bridge
 costs far more than the work it does, so the goal is to make as few of them as
 possible.
@@ -74,7 +74,7 @@ This is the part most posts leave out, so here is the honest list.
 **There are no transactions.** Two coordinators approving requests at the same
 moment can read the same row, both decide it is pending, and both write. Sheets
 will happily accept the second write. `LockService` gets you a mutex and is
-essential, but it is a lock you have to remember to take — not a guarantee the
+essential, but it is a lock you have to remember to take, not a guarantee the
 storage layer enforces.
 
 **Quotas are real ceilings, not soft limits.** Apps Script caps script runtime
@@ -89,7 +89,7 @@ planner by hand, badly.
 
 **No schema means no constraints.** Nothing stops a stray edit putting text in
 the hours column. The app validates on write, but the sheet is editable
-directly — which is the same openness that made it the right call, cutting the
+directly. That is the same openness that made it the right call, cutting the
 other way.
 
 **Concurrent readers degrade.** This was built for a cohort of interns and a
@@ -113,8 +113,8 @@ writes, or anything I expected to grow past a single team.
 Picking Sheets was right, but I treated it as a database for too long before
 admitting it is really a shared document with an API. Once I stopped expecting
 integrity from the storage layer and moved every guarantee into the application
-— validating on write, locking around read-modify-write, keeping an append-only
-log rather than mutating rows — the whole thing got more predictable.
+(validating on write, locking around read-modify-write, keeping an append-only
+log rather than mutating rows), the whole thing got more predictable.
 
 The constraint was never the technology. It was that the people using it needed
 to keep their spreadsheet, and building around that was worth more than the
