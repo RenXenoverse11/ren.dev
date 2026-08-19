@@ -1316,7 +1316,7 @@ textarea {
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 1.4fr 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 32px;
   align-items: start;
 }
@@ -1326,17 +1326,6 @@ textarea {
   max-width: 38ch;
   color: var(--text-muted);
   font-size: 0.92rem;
-}
-
-.footer__links {
-  display: grid;
-  gap: 10px;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-.footer__links a:hover {
-  color: var(--brand-strong);
 }
 
 .footer__socials {
@@ -2045,15 +2034,11 @@ textarea {
   }
 }
 
-/* The footer nav repeats the burger menu on phones, so it goes; what is left
-   is trimmed down to a signature rather than a second landing area. */
+/* The footer is trimmed down to a signature rather than a second landing
+   area — the full nav already lives in the navbar. */
 @media (max-width: 768px) {
   .footer {
     padding-block: 40px 20px;
-  }
-
-  .footer__links {
-    display: none;
   }
 
   .footer__inner {
