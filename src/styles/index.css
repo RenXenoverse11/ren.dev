@@ -1357,7 +1357,7 @@ textarea {
 }
 
 /* ============================================================
-   Writeups
+   Blog
    ============================================================ */
 /* Routed pages start under the fixed navbar; the home page doesn't need this
    because the hero carries its own top padding. */
@@ -1371,19 +1371,19 @@ textarea {
   max-width: 760px;
 }
 
-.writeups__grid {
+.blog__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 28px;
 }
 
-.writeups__grid .writeup-card {
+.blog__grid .post-card {
   flex: 1 1 320px;
   max-width: 440px;
 }
 
-.writeup-card {
+.post-card {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1391,13 +1391,13 @@ textarea {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.writeup-card:hover {
+.post-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
 
-.writeup-card__meta,
-.writeup__meta {
+.post-card__meta,
+.post__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1406,19 +1406,19 @@ textarea {
   color: var(--text-muted);
 }
 
-.writeup-card__title {
+.post-card__title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--heading);
 }
 
-.writeup-card__summary {
+.post-card__summary {
   color: var(--text-muted);
   line-height: 1.65;
 }
 
-.writeup-card__tags,
-.writeup__tags {
+.post-card__tags,
+.post__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -1427,29 +1427,29 @@ textarea {
 
 /* Pushed to the bottom so the link sits on one line across cards of
    differing summary lengths. */
-.writeup-card__more {
+.post-card__more {
   margin-top: auto;
   padding-top: 4px;
   font-weight: 600;
   color: var(--brand-deep);
 }
 
-:root[data-theme='dark'] .writeup-card__more {
+:root[data-theme='dark'] .post-card__more {
   color: var(--brand);
 }
 
-.writeups__actions {
+.blog__actions {
   display: flex;
   justify-content: center;
   margin-top: 36px;
 }
 
-.writeups__empty {
+.blog__empty {
   text-align: center;
   color: var(--text-muted);
 }
 
-.writeup__back {
+.post__back {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1459,15 +1459,15 @@ textarea {
   transition: color 0.2s ease;
 }
 
-.writeup__back:hover {
+.post__back:hover {
   color: var(--brand-deep);
 }
 
-:root[data-theme='dark'] .writeup__back:hover {
+:root[data-theme='dark'] .post__back:hover {
   color: var(--brand);
 }
 
-.writeup__header {
+.post__header {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1476,7 +1476,7 @@ textarea {
   border-bottom: 1px solid var(--border);
 }
 
-.writeup__title {
+.post__title {
   font-family: 'Fraunces', 'Times New Roman', Times, serif;
   font-size: clamp(1.9rem, 4vw, 2.7rem);
   font-weight: 800;
@@ -1485,7 +1485,7 @@ textarea {
   color: var(--heading);
 }
 
-.writeup__summary {
+.post__summary {
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--text-muted);

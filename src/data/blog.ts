@@ -1,11 +1,11 @@
 /**
- * Writeups index, built from the markdown in `src/content/writeups/`.
+ * Blog index, built from the markdown in `src/content/blog/`.
  *
  * Adding a post means dropping a `.md` file in that folder — the glob picks it
  * up and the filename becomes the URL slug. Nothing here needs editing.
  */
 
-export type Writeup = {
+export type Post = {
   slug: string
   title: string
   date: string
@@ -17,12 +17,11 @@ export type Writeup = {
 
 /** `eager` so posts are part of the main bundle: there are only a handful, and
     a network round-trip per post would show a loading flash on every click. */
-const modules = import.meta.glob<{ default: Omit<Writeup, 'slug'> }>(
-  '../content/writeups/*.md',
-  { eager: true },
-)
+const modules = import.meta.glob<{ default: Omit<Post, 'slug'> }>('../content/blog/*.md', {
+  eager: true,
+})
 
-export const writeups: Writeup[] = Object.entries(modules)
+export const posts: Post[] = Object.entries(modules)
   .map(([path, module]) => ({
     ...module.default,
     slug: path.split('/').pop()!.replace(/\.md$/, ''),
@@ -30,8 +29,8 @@ export const writeups: Writeup[] = Object.entries(modules)
   // Newest first.
   .sort((a, b) => b.date.localeCompare(a.date))
 
-export function findWriteup(slug: string | undefined): Writeup | undefined {
-  return writeups.find((writeup) => writeup.slug === slug)
+export function findPost(slug: string | undefined): Post | undefined {
+  return posts.find((post) => post.slug === slug)
 }
 
 /** e.g. '19 August 2026' — spelled out to avoid day/month ambiguity. */

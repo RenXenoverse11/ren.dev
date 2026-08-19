@@ -9,11 +9,11 @@ import react from '@vitejs/plugin-react'
  *
  * Parsing here rather than in the browser keeps `marked` and `gray-matter` as
  * dev dependencies — the bundle ships plain HTML strings instead of a markdown
- * parser, which would otherwise cost more than every writeup combined.
+ * parser, which would otherwise cost more than every post combined.
  */
 function markdown(): Plugin {
   return {
-    name: 'writeups-markdown',
+    name: 'blog-markdown',
     enforce: 'pre',
     async transform(_code, id) {
       if (!id.endsWith('.md')) return null

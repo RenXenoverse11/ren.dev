@@ -1,6 +1,6 @@
-/** Shape produced by the `writeups-markdown` Vite plugin (see vite.config.ts). */
+/** Shape produced by the `blog-markdown` Vite plugin (see vite.config.ts). */
 declare module '*.md' {
-  const writeup: {
+  const post: {
     title: string
     /** ISO date, e.g. '2026-08-19'. */
     date: string
@@ -11,5 +11,5 @@ declare module '*.md' {
     /** Rendered from the markdown body at build time. */
     html: string
   }
-  export default writeup
+  export default post
 }

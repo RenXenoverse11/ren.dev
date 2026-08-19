@@ -1,9 +1,9 @@
 import { About } from './About'
+import { BlogTeaser } from './BlogTeaser'
 import { Contact } from './Contact'
 import { Hero } from './Hero'
 import { Projects } from './Projects'
 import { Skills } from './Skills'
-import { WriteupsTeaser } from './WriteupsTeaser'
 
 /** The portfolio itself — everything at `/`. */
 export function Home() {
@@ -13,7 +13,7 @@ export function Home() {
       <About />
       <Skills />
       <Projects />
-      <WriteupsTeaser />
+      <BlogTeaser />
       <Contact />
     </main>
   )

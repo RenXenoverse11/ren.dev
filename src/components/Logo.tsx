@@ -11,7 +11,7 @@ const brandSuffix = dotIndex === -1 ? '' : site.brand.slice(dotIndex + 1)
  * the name solid, the dot as the accent, the TLD muted.
  *
  * Routes to `/` rather than `#home` so it also works as a way back from a
- * writeup page.
+ * blog post.
  */
 export function Logo({ to = '/' }: { to?: string }) {
   return (

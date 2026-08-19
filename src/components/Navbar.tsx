@@ -1,7 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { posts } from '../data/blog'
 import { navLinks, site } from '../data/site'
-import { writeups } from '../data/writeups'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import type { Theme } from '../hooks/useTheme'
 import {
@@ -22,13 +22,13 @@ import { Logo } from './Logo'
 /**
  * Sections the scrollspy watches, which must stay in DOM order — useScrollSpy
  * keeps the last entry that has scrolled past, so a list out of order
- * highlights the wrong link. The writeups teaser sits between projects and
- * contact on the home page, and isn't in navLinks because its nav entry is a
- * route rather than an anchor.
+ * highlights the wrong link. The blog teaser sits between projects and contact
+ * on the home page, and isn't in navLinks because its nav entry is a route
+ * rather than an anchor.
  */
 const sectionIds = navLinks
   .map((link) => link.href.slice(1))
-  .flatMap((id) => (id === 'contact' && writeups.length > 0 ? ['writeups', id] : [id]))
+  .flatMap((id) => (id === 'contact' && posts.length > 0 ? ['blog', id] : [id]))
 
 /** One icon per section, shown in the mobile dropdown only. */
 const navIcons = {
@@ -118,11 +118,11 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
           {/* Hidden until something is published — an empty section in the nav
               reads worse than no section at all. */}
-          {writeups.length > 0 ? (
+          {posts.length > 0 ? (
             <Link
-              to="/writeups"
+              to="/blog"
               className={`navbar__link${
-                pathname.startsWith('/writeups') || (onHome && activeId === 'writeups')
+                pathname.startsWith('/blog') || (onHome && activeId === 'blog')
                   ? ' navbar__link--active'
                   : ''
               }`}
@@ -130,7 +130,7 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
               onClick={() => setMenuOpen(false)}
             >
               <PenIcon className="navbar__link-icon" />
-              Writeups
+              Blog
             </Link>
           ) : null}
         </nav>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
+import { posts } from '../data/blog'
 import { navLinks, site, socials } from '../data/site'
-import { writeups } from '../data/writeups'
 import { socialIcons } from './Icons'
 import { Logo } from './Logo'
 
@@ -29,7 +29,7 @@ export function Footer() {
               </Link>
             ),
           )}
-          {writeups.length > 0 ? <Link to="/writeups">Writeups</Link> : null}
+          {posts.length > 0 ? <Link to="/blog">Blog</Link> : null}
         </nav>
 
         <div className="footer__socials">

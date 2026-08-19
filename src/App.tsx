@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import { BlogIndex } from './components/BlogIndex'
+import { BlogPost } from './components/BlogPost'
 import { Footer } from './components/Footer'
 import { Home } from './components/Home'
 import { Navbar } from './components/Navbar'
 import { NotFound } from './components/NotFound'
-import { WriteupPage } from './components/WriteupPage'
-import { WriteupsIndex } from './components/WriteupsIndex'
 import { useReveal } from './hooks/useReveal'
 import { useTheme } from './hooks/useTheme'
 
@@ -14,7 +14,7 @@ import { useTheme } from './hooks/useTheme'
  * restores scroll for real page loads, so a client-side route change would
  * otherwise land halfway down the new page.
  *
- * Arriving with a hash (`/#about`, from the navbar on a writeup page) is the
+ * Arriving with a hash (`/#about`, from the navbar on a blog post) is the
  * other case: the browser won't jump to an anchor it never loaded, so the
  * scroll has to happen here, after the target route has rendered.
  */
@@ -51,8 +51,8 @@ export default function App() {
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/writeups" element={<WriteupsIndex />} />
-        <Route path="/writeups/:slug" element={<WriteupPage />} />
+        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
