@@ -7,6 +7,11 @@ import { Logo } from './Logo'
 export function Footer() {
   const onHome = useLocation().pathname === '/'
 
+  // Contact renders last, after Blog, to match its position as the last
+  // section on the page — see the identical fix in Navbar.tsx.
+  const contactLink = navLinks.find((link) => link.href === '#contact')
+  const leadingLinks = navLinks.filter((link) => link.href !== '#contact')
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
@@ -18,7 +23,7 @@ export function Footer() {
         {/* Same as the navbar: these anchors only resolve on the home page, so
             off it they have to route there first. */}
         <nav className="footer__links" aria-label="Footer">
-          {navLinks.map((link) =>
+          {leadingLinks.map((link) =>
             onHome ? (
               <a key={link.href} href={link.href}>
                 {link.label}
@@ -30,6 +35,13 @@ export function Footer() {
             ),
           )}
           {posts.length > 0 ? <Link to="/blog">Blog</Link> : null}
+          {contactLink ? (
+            onHome ? (
+              <a href={contactLink.href}>{contactLink.label}</a>
+            ) : (
+              <Link to={`/${contactLink.href}`}>{contactLink.label}</Link>
+            )
+          ) : null}
         </nav>
 
         <div className="footer__socials">
