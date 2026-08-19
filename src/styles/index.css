@@ -554,9 +554,12 @@ textarea {
   letter-spacing: -0.03em;
 }
 
+.hero__title-line {
+  display: block;
+}
+
 .hero__name {
   color: var(--brand-deep);
-  display: inline;
 }
 
 :root[data-theme='dark'] .hero__name {
