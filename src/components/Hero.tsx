@@ -30,9 +30,19 @@ function initialsOf(name: string) {
     .join('')
 }
 
+/** Splits "Laurence Jan Bagaan" into a first/middle line and a surname line. */
+function splitName(name: string) {
+  const parts = name.split(' ').filter(Boolean)
+  return {
+    firstLine: parts.slice(0, -1).join(' '),
+    lastLine: parts[parts.length - 1] ?? '',
+  }
+}
+
 export function Hero() {
   const [photoFailed, setPhotoFailed] = useState(false)
   const initials = useMemo(() => initialsOf(site.name), [])
+  const { firstLine, lastLine } = useMemo(() => splitName(site.name), [])
   const now = useClock()
   const timeLabel = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
 
@@ -64,7 +74,9 @@ export function Hero() {
           </span>
 
           <h1 className="hero__title">
-            {site.greeting} <span className="hero__name">{site.name}</span>
+            <span className="hero__title-line">{site.greeting}</span>
+            <span className="hero__title-line hero__name">{firstLine}</span>
+            <span className="hero__title-line hero__name">{lastLine}</span>
           </h1>
           <p className="hero__role">{site.role}</p>
           <p className="hero__tagline">{site.tagline}</p>
