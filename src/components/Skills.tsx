@@ -2,12 +2,18 @@ import { brandIcons } from '../data/brandIcons'
 import { skillGroups, type Tech } from '../data/site'
 import { categoryIcons } from './Icons'
 import { SectionHeading } from './SectionHeading'
+import { techBadges } from './TechBadges'
 
 /**
  * Brand mark for a chip. Colors come from the generated icon data; the dark
  * variant is only set for marks that would disappear on a dark background.
  */
 function TechIcon({ tech }: { tech: Tech }) {
+  if (tech.badge) {
+    const Badge = techBadges[tech.badge]
+    return <Badge className="tech__badge" />
+  }
+
   const icon = tech.slug ? brandIcons[tech.slug] : undefined
 
   if (!icon) {
