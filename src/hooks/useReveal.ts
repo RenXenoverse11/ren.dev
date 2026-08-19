@@ -3,11 +3,16 @@ import { useEffect, type CSSProperties } from 'react'
 /**
  * Reveals every `[data-reveal]` element as it scrolls into view.
  *
- * One observer for the whole page rather than a hook per component: the page is
- * static after mount, so a single scan picks up everything, and elements above
- * the fold intersect immediately — which doubles as the on-load entrance.
+ * One observer for the whole page rather than a hook per component: a route's
+ * markup is static after mount, so a single scan picks up everything, and
+ * elements above the fold intersect immediately — which doubles as the on-load
+ * entrance.
+ *
+ * `key` re-runs the scan when it changes. Pass the current pathname: each route
+ * mounts its own elements, and an observer only tracks what existed when it was
+ * built, so without this a navigated-to page would stay invisible.
  */
-export function useReveal() {
+export function useReveal(key?: string) {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll('[data-reveal]'))
 
@@ -37,7 +42,7 @@ export function useReveal() {
 
     elements.forEach((element) => observer.observe(element))
     return () => observer.disconnect()
-  }, [])
+  }, [key])
 }
 
 /** Staggers one element behind its neighbours, for lists that reveal together. */

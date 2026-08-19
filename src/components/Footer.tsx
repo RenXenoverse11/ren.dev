@@ -1,8 +1,12 @@
+import { Link, useLocation } from 'react-router-dom'
 import { navLinks, site, socials } from '../data/site'
+import { writeups } from '../data/writeups'
 import { socialIcons } from './Icons'
 import { Logo } from './Logo'
 
 export function Footer() {
+  const onHome = useLocation().pathname === '/'
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
@@ -11,12 +15,21 @@ export function Footer() {
           <p className="footer__tagline">{site.tagline}</p>
         </div>
 
+        {/* Same as the navbar: these anchors only resolve on the home page, so
+            off it they have to route there first. */}
         <nav className="footer__links" aria-label="Footer">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            onHome ? (
+              <a key={link.href} href={link.href}>
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} to={`/${link.href}`}>
+                {link.label}
+              </Link>
+            ),
+          )}
+          {writeups.length > 0 ? <Link to="/writeups">Writeups</Link> : null}
         </nav>
 
         <div className="footer__socials">

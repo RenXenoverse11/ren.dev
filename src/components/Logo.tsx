@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { site } from '../data/site'
 import { LogoMark } from './LogoMark'
 
@@ -8,10 +9,13 @@ const brandSuffix = dotIndex === -1 ? '' : site.brand.slice(dotIndex + 1)
 /**
  * Brand lockup: the custom "R" SVG mark followed by the wordmark as live text —
  * the name solid, the dot as the accent, the TLD muted.
+ *
+ * Routes to `/` rather than `#home` so it also works as a way back from a
+ * writeup page.
  */
-export function Logo({ href = '#home' }: { href?: string }) {
+export function Logo({ to = '/' }: { to?: string }) {
   return (
-    <a className="logo" href={href} aria-label={`${site.brand} home`}>
+    <Link className="logo" to={to} aria-label={`${site.brand} home`}>
       <LogoMark className="logo__mark" />
       {site.showWordmark ? (
         <span className="logo__text">
@@ -24,6 +28,6 @@ export function Logo({ href = '#home' }: { href?: string }) {
           ) : null}
         </span>
       ) : null}
-    </a>
+    </Link>
   )
 }
