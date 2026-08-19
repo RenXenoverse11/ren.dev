@@ -4,6 +4,7 @@ date: '2026-08-19'
 summary: 'I rebuilt parts of this portfolio with an AI coding agent driving. Not a demo — real commits, a real bug it caught, and the places where I had to overrule it.'
 tags: ['AI', 'Workflow', 'React']
 readingTime: 7
+image: '/blog/how-i-use-ai-to-build.webp'
 draft: true
 ---
 

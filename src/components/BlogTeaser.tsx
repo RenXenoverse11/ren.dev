@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { formatDate, posts } from '../data/blog'
-import { revealDelay } from '../hooks/useReveal'
+import { posts } from '../data/blog'
 import { ArrowDownIcon } from './Icons'
+import { PostCard } from './PostCard'
 import { SectionHeading } from './SectionHeading'
 
 /** The three newest posts, teased on the home page. */
@@ -17,32 +17,7 @@ export function BlogTeaser() {
 
         <div className="blog__grid">
           {posts.slice(0, 3).map((post, index) => (
-            <Link
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="post-card card"
-              data-reveal
-              style={revealDelay(index)}
-            >
-              <p className="post-card__meta">
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
-                <span aria-hidden>·</span>
-                <span>{post.readingTime} min read</span>
-              </p>
-
-              <h3 className="post-card__title">{post.title}</h3>
-              <p className="post-card__summary">{post.summary}</p>
-
-              <ul className="post-card__tags">
-                {post.tags.map((tag) => (
-                  <li key={tag} className="tag">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-
-              <span className="post-card__more">Read post</span>
-            </Link>
+            <PostCard key={post.slug} post={post} revealStep={index} />
           ))}
         </div>
 

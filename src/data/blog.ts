@@ -14,6 +14,8 @@ export type Post = {
   readingTime: number
   /** Hidden from the built site; still visible in `npm run dev`. */
   draft?: boolean
+  /** Cover image served from `public/blog/`. Falls back to a gradient. */
+  image?: string
   html: string
 }
 
@@ -44,4 +46,11 @@ export function formatDate(iso: string): string {
   const date = new Date(`${iso}T00:00:00`)
   if (Number.isNaN(date.getTime())) return iso
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+}
+
+/** e.g. 'Aug 2026' — for card listings, where the full date is more than needed. */
+export function formatMonthYear(iso: string): string {
+  const date = new Date(`${iso}T00:00:00`)
+  if (Number.isNaN(date.getTime())) return iso
+  return date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })
 }

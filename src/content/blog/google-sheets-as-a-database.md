@@ -4,6 +4,7 @@ date: '2026-08-19'
 summary: 'I built an Internship Management System on Google Apps Script with Google Sheets as the only datastore. It runs in production at zero cost — here is where that works, and where it stops working.'
 tags: ['Google Apps Script', 'Svelte', 'Architecture']
 readingTime: 6
+image: '/blog/google-sheets-as-a-database.webp'
 ---
 
 Every instinct I had said use a real database. The Internship Management System
