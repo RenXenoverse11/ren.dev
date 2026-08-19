@@ -8,6 +8,7 @@ Screenshots for the project cards, referenced by `image` in `src/data/site.ts`.
 | `IMS-dashboard.webp` | Internship Management System |
 | `tsi-kpi-dashboard.webp` | KPI Monitoring Dashboard |
 | `first-aid-cabinet.webp` | First Aid Adventure |
+| `the-last-aethon.webp` | The Last Aethon |
 
 - The frame is **16:9** and the image is cropped from the top by default —
   fine for a browser screenshot, wrong for a portrait photo like

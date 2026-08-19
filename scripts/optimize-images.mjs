@@ -10,9 +10,10 @@
  */
 import { readdir, stat, unlink } from 'node:fs/promises'
 import { extname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
-const DIR = new URL('../public/projects/', import.meta.url).pathname
+const DIR = fileURLToPath(new URL('../public/projects/', import.meta.url))
 const WIDTH = 1200
 const QUALITY = 80
 
