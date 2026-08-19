@@ -63,24 +63,29 @@ export function PostCard({ post, revealStep, variant = 'grid' }: PostCardProps) 
     </>
   )
 
-  // The list view is a user-triggered toggle, not a page-load entrance, so it
-  // skips data-reveal — those cards would never intersect the observer that
-  // already ran on mount, and sit invisible forever.
-  if (isRow) {
+  // Reveal is opt-in via revealStep, and only for the grid variant. It's
+  // wrong for anywhere the layout can toggle between variants (the /blog
+  // grid/list switch): the observer marks a card revealed by mutating its
+  // classList directly, outside React. The next time React re-renders that
+  // same DOM node with a different className (switching variants), it
+  // overwrites the whole class list and wipes that out — and since the
+  // observer only fires once per element, it never gets re-revealed, so the
+  // card sits at opacity: 0 forever. Omit revealStep wherever the view can
+  // change under a card; only a page-load entrance (the homepage teaser) is
+  // safe to animate.
+  if (isRow || revealStep === undefined) {
     return (
-      <Link to={`/blog/${post.slug}`} className="post-card card post-card--row">
+      <Link
+        to={`/blog/${post.slug}`}
+        className={`post-card card${isRow ? ' post-card--row' : ''}`}
+      >
         {content}
       </Link>
     )
   }
 
   return (
-    <Link
-      to={`/blog/${post.slug}`}
-      className="post-card card"
-      data-reveal
-      style={revealDelay(revealStep ?? 0)}
-    >
+    <Link to={`/blog/${post.slug}`} className="post-card card" data-reveal style={revealDelay(revealStep)}>
       {content}
     </Link>
   )

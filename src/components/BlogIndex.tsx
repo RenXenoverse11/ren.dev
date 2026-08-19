@@ -45,8 +45,8 @@ export function BlogIndex() {
             <p className="blog__empty">Nothing published yet — check back soon.</p>
           ) : (
             <div className={view === 'grid' ? 'blog__grid' : 'blog__list'}>
-              {posts.map((post, index) => (
-                <PostCard key={post.slug} post={post} revealStep={index % 3} variant={view} />
+              {posts.map((post) => (
+                <PostCard key={post.slug} post={post} variant={view} />
               ))}
             </div>
           )}
