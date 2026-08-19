@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { contactEndpoint, site, socials } from '../data/site'
+import { revealDelay } from '../hooks/useReveal'
 import { MailIcon, MapPinIcon, socialIcons } from './Icons'
 import { SectionHeading } from './SectionHeading'
 
@@ -68,7 +69,7 @@ export function Contact() {
         <SectionHeading title="Contact" subtitle="Have a project in mind? Let's talk." />
 
         <div className="contact__grid">
-          <div className="contact__info">
+          <div className="contact__info" data-reveal>
             <h3 className="contact__heading">Let's build something together</h3>
             <p className="contact__text">
               I'm open to freelance work, full-time roles, and interesting collaborations. Send a
@@ -115,7 +116,13 @@ export function Contact() {
             </div>
           </div>
 
-          <form className="contact__form card" onSubmit={onSubmit} noValidate>
+          <form
+            className="contact__form card"
+            onSubmit={onSubmit}
+            noValidate
+            data-reveal
+            style={revealDelay(1)}
+          >
             <div className="field-row">
               <div className="field">
                 <label htmlFor="name">Name</label>

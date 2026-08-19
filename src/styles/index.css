@@ -127,6 +127,38 @@ textarea {
   border-radius: 4px;
 }
 
+/* ============================================================
+   Scroll reveal
+   ============================================================ */
+/* Elements start transparent; useReveal adds .is-revealed as each scrolls into
+   view.
+
+   A keyframe animation rather than a transition, deliberately: cards here
+   declare their own `transition` and hover `transform`, and a reveal built from
+   those would overwrite both. `backwards` fill holds the start state through
+   the stagger delay, then releases entirely once the animation ends — so the
+   final transform falls back to the element's own rules and hover still lifts. */
+[data-reveal] {
+  opacity: 0;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  animation: reveal-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .container {
   width: 100%;
   max-width: var(--container);
@@ -1650,5 +1682,12 @@ textarea {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* useReveal already skips the observer here, but this guarantees the content
+     is visible even if its script never runs. */
+  [data-reveal] {
+    opacity: 1;
+    animation: none;
   }
 }

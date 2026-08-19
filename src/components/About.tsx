@@ -8,7 +8,7 @@ export function About() {
       <div className="container">
         <SectionHeading title={about.heading} subtitle={about.subheading} />
 
-        <div className="about__body">
+        <div className="about__body" data-reveal>
           <p className="about__lead">{about.lead}</p>
 
           {about.paragraphs.map((paragraph) => (
@@ -26,7 +26,7 @@ export function About() {
           </p>
         </div>
 
-        <div className="about__actions">
+        <div className="about__actions" data-reveal>
           <a className="button button--primary" href="#contact">
             Let's Work Together
           </a>

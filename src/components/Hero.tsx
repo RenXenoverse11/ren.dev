@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { site, socials } from '../data/site'
 import { useClock } from '../hooks/useClock'
+import { revealDelay } from '../hooks/useReveal'
 import { ArrowDownIcon, ClockIcon, MailIcon, socialIcons } from './Icons'
 
 /** Decorative squares scattered behind the hero, matching the reference design. */
@@ -68,20 +69,32 @@ export function Hero() {
         <div className="hero__copy">
           <span
             className={`hero__availability${site.availability.available ? '' : ' hero__availability--away'}`}
+            data-reveal
           >
             <span className="hero__availability-dot" aria-hidden />
             {site.availability.label}
           </span>
 
+          {/* Each line rises just behind the one above it, so the name lands last. */}
           <h1 className="hero__title">
-            <span className="hero__title-line">{site.greeting}</span>
-            <span className="hero__title-line hero__name">{firstLine}</span>
-            <span className="hero__title-line hero__name">{lastLine}</span>
+            <span className="hero__title-line" data-reveal style={revealDelay(1)}>
+              {site.greeting}
+            </span>
+            <span className="hero__title-line hero__name" data-reveal style={revealDelay(2)}>
+              {firstLine}
+            </span>
+            <span className="hero__title-line hero__name" data-reveal style={revealDelay(3)}>
+              {lastLine}
+            </span>
           </h1>
-          <p className="hero__role">{site.role}</p>
-          <p className="hero__tagline">{site.tagline}</p>
+          <p className="hero__role" data-reveal style={revealDelay(4)}>
+            {site.role}
+          </p>
+          <p className="hero__tagline" data-reveal style={revealDelay(5)}>
+            {site.tagline}
+          </p>
 
-          <div className="hero__buttons">
+          <div className="hero__buttons" data-reveal style={revealDelay(6)}>
             <a className="button button--primary" href="#contact">
               <MailIcon /> Hire Me
             </a>
@@ -90,7 +103,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="hero__socials">
+          <div className="hero__socials" data-reveal style={revealDelay(7)}>
             {socials.map((social) => {
               const Icon = socialIcons[social.icon]
               return (
@@ -110,13 +123,13 @@ export function Hero() {
 
           {/* Reads the visitor's own device clock, not mine — a small "you're
               looking at this live" touch rather than a timezone signal. */}
-          <p className="hero__clock">
+          <p className="hero__clock" data-reveal style={revealDelay(8)}>
             <ClockIcon />
             Your local time is <strong>{timeLabel}</strong>
           </p>
         </div>
 
-        <div className="hero__photo-wrap">
+        <div className="hero__photo-wrap" data-reveal style={revealDelay(3)}>
           <span className="hero__photo-backdrop" aria-hidden />
           <div className="hero__photo">
             {photoFailed ? (
