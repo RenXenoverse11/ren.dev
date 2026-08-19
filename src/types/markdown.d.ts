@@ -8,6 +8,8 @@ declare module '*.md' {
     tags: string[]
     /** Minutes, shown on the card. */
     readingTime: number
+    /** Hidden from the built site; still visible in `npm run dev`. */
+    draft?: boolean
     /** Rendered from the markdown body at build time. */
     html: string
   }

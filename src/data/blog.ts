@@ -12,6 +12,8 @@ export type Post = {
   summary: string
   tags: string[]
   readingTime: number
+  /** Hidden from the built site; still visible in `npm run dev`. */
+  draft?: boolean
   html: string
 }
 
@@ -26,6 +28,10 @@ export const posts: Post[] = Object.entries(modules)
     ...module.default,
     slug: path.split('/').pop()!.replace(/\.md$/, ''),
   }))
+  // Drafts are readable in `npm run dev` so a post can be previewed in place,
+  // and dropped from the build so an unfinished file can't reach the live site
+  // just because it was committed.
+  .filter((post) => !post.draft || import.meta.env.DEV)
   // Newest first.
   .sort((a, b) => b.date.localeCompare(a.date))
 
