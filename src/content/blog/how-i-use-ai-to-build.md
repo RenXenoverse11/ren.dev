@@ -5,7 +5,6 @@ summary: 'I rebuilt parts of this portfolio with an AI coding agent driving. Not
 tags: ['AI', 'Workflow', 'React']
 readingTime: 7
 image: '/blog/how-i-use-ai-to-build.webp'
-draft: true
 ---
 
 Most writing about AI coding tools is either a demo that works suspiciously well
