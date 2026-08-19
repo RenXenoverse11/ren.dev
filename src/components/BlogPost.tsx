@@ -49,6 +49,12 @@ export function BlogPost() {
             </ul>
           </header>
 
+          {post.image ? (
+            <div className="post__cover">
+              <img src={post.image} alt={post.title} />
+            </div>
+          ) : null}
+
           {/* Markdown is compiled at build time from a file in this repo — the
               only author is me, so there is no untrusted input to sanitize. */}
           <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />

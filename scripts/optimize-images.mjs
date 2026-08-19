@@ -1,18 +1,23 @@
 /**
- * Resizes and re-encodes the project screenshots.
+ * Resizes and re-encodes screenshots/covers dropped into a public/ folder.
  *
- * Screenshots come out of a browser at full resolution and several megabytes;
- * the cards are never wider than ~380px, so shipping the originals wastes most
- * of a mobile visitor's data on pixels they never see.
+ * Screenshots come out of a browser (or an image generator) at full
+ * resolution and several megabytes; the cards that display them are never
+ * wider than ~380px, so shipping the originals wastes most of a mobile
+ * visitor's data on pixels they never see.
  *
- * sharp is not a dependency of this project — install it only when you need to
- * run this:  npm i -D --no-save sharp && node scripts/optimize-images.mjs
+ * sharp is not a dependency of this project — install it only when you need
+ * to run this:
+ *   npm i -D --no-save sharp && node scripts/optimize-images.mjs [dir]
+ * `dir` is relative to `public/` and defaults to `projects`.
  */
 import { readdir, stat, unlink } from 'node:fs/promises'
 import { extname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
-const DIR = new URL('../public/projects/', import.meta.url).pathname
+const target = process.argv[2] ?? 'projects'
+const DIR = fileURLToPath(new URL(`../public/${target}/`, import.meta.url))
 const WIDTH = 1200
 const QUALITY = 80
 

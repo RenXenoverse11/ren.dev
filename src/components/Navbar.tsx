@@ -51,6 +51,11 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const onHome = pathname === '/'
   const activeId = useScrollSpy(sectionIds)
 
+  // Contact renders last, after the Blog link, to match its position as the
+  // last section on the page — Blog sits between Projects and Contact.
+  const contactLink = navLinks.find((link) => link.href === '#contact')
+  const leadingLinks = navLinks.filter((link) => link.href !== '#contact')
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
@@ -65,6 +70,33 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
       document.body.style.overflow = ''
     }
   }, [menuOpen])
+
+  const renderNavLink = (link: (typeof navLinks)[number], index: number) => {
+    const LinkIcon = navIcons[link.href as keyof typeof navIcons]
+    // Off the home page these sections don't exist to scroll to, so the
+    // link has to route back to `/` and carry the hash with it.
+    const active = onHome && activeId === link.href.slice(1)
+    const className = `navbar__link${active ? ' navbar__link--active' : ''}`
+    const style = { '--stagger': index } as CSSProperties
+
+    return onHome ? (
+      <a key={link.href} href={link.href} className={className} style={style} onClick={() => setMenuOpen(false)}>
+        <LinkIcon className="navbar__link-icon" />
+        {link.label}
+      </a>
+    ) : (
+      <Link
+        key={link.href}
+        to={`/${link.href}`}
+        className={className}
+        style={style}
+        onClick={() => setMenuOpen(false)}
+      >
+        <LinkIcon className="navbar__link-icon" />
+        {link.label}
+      </Link>
+    )
+  }
 
   return (
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
@@ -83,41 +115,11 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
         <Logo />
 
         <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
-          {navLinks.map((link, index) => {
-            const LinkIcon = navIcons[link.href as keyof typeof navIcons]
-            // Off the home page these sections don't exist to scroll to, so the
-            // link has to route back to `/` and carry the hash with it.
-            const active = onHome && activeId === link.href.slice(1)
-            const className = `navbar__link${active ? ' navbar__link--active' : ''}`
-            const style = { '--stagger': index } as CSSProperties
-
-            return onHome ? (
-              <a
-                key={link.href}
-                href={link.href}
-                className={className}
-                style={style}
-                onClick={() => setMenuOpen(false)}
-              >
-                <LinkIcon className="navbar__link-icon" />
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                to={`/${link.href}`}
-                className={className}
-                style={style}
-                onClick={() => setMenuOpen(false)}
-              >
-                <LinkIcon className="navbar__link-icon" />
-                {link.label}
-              </Link>
-            )
-          })}
+          {leadingLinks.map((link, index) => renderNavLink(link, index))}
 
           {/* Hidden until something is published — an empty section in the nav
-              reads worse than no section at all. */}
+              reads worse than no section at all. Sits between Projects and
+              Contact to match its position on the page. */}
           {posts.length > 0 ? (
             <Link
               to="/blog"
@@ -126,13 +128,15 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
                   ? ' navbar__link--active'
                   : ''
               }`}
-              style={{ '--stagger': navLinks.length } as CSSProperties}
+              style={{ '--stagger': leadingLinks.length } as CSSProperties}
               onClick={() => setMenuOpen(false)}
             >
               <PenIcon className="navbar__link-icon" />
               Blog
             </Link>
           ) : null}
+
+          {contactLink ? renderNavLink(contactLink, navLinks.length) : null}
         </nav>
 
         <div className="navbar__actions">

@@ -4,31 +4,29 @@ date: '2026-08-19'
 summary: 'I rebuilt parts of this portfolio with an AI coding agent driving. Not a demo, but real commits, a real bug it caught, and the places where I had to overrule it.'
 tags: ['AI', 'Workflow', 'React']
 readingTime: 7
-draft: true
+image: '/blog/how-i-use-ai-to-build.webp'
 ---
-
-> **DRAFT, not ready to publish.** Everything in "The session" is what actually
-> happened and can stay. Sections marked **[NEEDS YOUR INPUT]** are placeholders
-> I can't write for you. They're your opinions and your experience with tools I
-> can't observe. Delete this blockquote before publishing.
 
 Most writing about AI coding tools is either a demo that works suspiciously well
 or a complaint that it wrote nonsense. I want to write down what actually
 happened over one working session on this site, including the parts where the
 model was wrong and the parts where I overruled it.
 
-## [NEEDS YOUR INPUT] How I split the two tools
+## How I split the two tools
 
-*You use both ChatGPT and Claude. I can see both in your taskbar, but I don't
-know how you divide them. A few prompts to answer in your own words:*
+Claude is what actually touches the code. When the work means driving multiple
+files, running commands, and carrying out a real implementation end to end, like
+the animation fix and the blog system below, that's Claude in the driver's seat,
+not a suggestion I copy-paste myself. ChatGPT stays for the lighter, disposable
+stuff: a quick syntax reminder, sanity-checking an idea before I commit to it, a
+question that doesn't need repo access to answer.
 
-- *Which do you reach for first, and for what kind of question?*
-- *Is one better for quick syntax lookups vs. multi-file changes?*
-- *Has either one burned you badly enough that you stopped trusting it for
-  something specific?*
-
-*Two or three honest paragraphs here. This is the part readers can't get
-anywhere else, because it's yours.*
+It's less about one being smarter than the other and more about how much I trust
+each one unsupervised. I'll let Claude run for an hour on a scoped task and check
+the result afterward. ChatGPT I only ever use for a single reply I can verify
+myself in ten seconds. Neither has burned me badly enough on its own that I've
+sworn it off for something specific. The failures I have hit came from trusting
+output too quickly, not from picking the wrong tool for the job.
 
 ## The session
 
@@ -126,30 +124,34 @@ that took the bundle from **73.5 kB to 90.5 kB gzipped**. Not free. I took the
 deal because shareable, indexable post URLs are the entire point, but I'd rather
 be told the number than discover it later in a Lighthouse report.
 
-## [NEEDS YOUR INPUT] Where it goes wrong
+## Where it goes wrong
 
-*Two things you can write honestly here, one of which you have first-hand:*
+When I drafted the Google Sheets post, it invented specifics about my own
+project (quota limits, `LockService`, concurrency races) that read as
+confident fact but were inferred, not verified. I had to fact-check my own
+experience back into my own writing. That's the single most important caution
+in this whole post: **it is most convincing exactly where it's guessing.**
 
-1. *When I drafted the Google Sheets post, I invented specifics about your own
-   project (quota limits, `LockService`, concurrency races) that read as
-   confident fact but that I'd inferred, not verified. You had to fact-check your
-   own experience back into it. That's the single most important caution in this
-   whole post: **it is most convincing exactly where it's guessing.** Write that
-   up in your own words.*
-2. *Anything else that's bitten you: hallucinated APIs, confidently wrong
-   versions, outdated library advice.*
+The other recurring one is outdated library or API advice: a method signature
+or a package version that used to be current and isn't anymore. It reads with
+exactly the same confidence as the correct answer, which is what makes it worth
+watching for. Nothing about the tone signals "this was true two major versions
+ago."
 
-## [NEEDS YOUR INPUT] What I'd tell another developer
+## What I'd tell another developer
 
-*Your actual conclusion. Some questions to react to, not a script to copy:*
+It changed what I was willing to attempt, not just how fast I got through what I
+already knew how to do. Rebuilding the animation system and standing up a whole
+blog (content pipeline, routing, drafts) in one sitting isn't something I'd
+have queued up solo on a portfolio site; the activation energy wasn't worth it.
+With an agent actually driving the implementation, it was.
 
-- *Has it changed what you're willing to take on, or just how fast you do it?*
-- *What do you still refuse to hand over?*
-- *Would you tell a junior dev to use this, or does it need enough judgment to
-  catch the wrong answers that it's a bad first tool?*
-
-*Land on something you actually believe. A hedged ending is worse than a strong
-opinion someone disagrees with.*
+What I still don't hand over is the judgment call. I still read the diff, still
+override it when the reasoning is wrong instead of assuming it isn't. See the
+Blog-vs-Writeups call above, and the reveal-animation bug it caught that a less
+careful pass would have shipped. Would I tell a junior dev to use this? Only with
+that same habit attached. Without the discipline to verify instead of trust, it's
+a tool that lets you ship confidently wrong things faster than you used to.
 
 ---
 

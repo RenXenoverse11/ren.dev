@@ -219,6 +219,17 @@ export const projects: Project[] = [
     imagePosition: 'center 68%',
     repo: 'https://github.com/RenXenoverse11/first-aid-thesis',
   },
+  {
+    title: 'The Last Aethon',
+    description: [
+      'A 2D side-scrolling action game: Ren, the last surviving member of the Aethon Clan, flees relentless patrols through the cursed Ashenveil Forest until a mysterious stranger named Vesper crosses his path.',
+      'Started as a Phaser 3 / TypeScript prototype and is now being ported and expanded in Unity (URP), with sprite-based animations, parallax scrolling backgrounds, Cinemachine camera work, an HP/Mana HUD, and a portrait-driven dialogue system.',
+    ],
+    tags: ['Unity', 'C#', 'Phaser', 'TypeScript', 'Cinemachine', 'Game Design'],
+    cover: '\u{2694}\u{FE0F}',
+    image: '/projects/the-last-aethon.webp',
+    repo: 'https://github.com/RenXenoverse11/the-last-aethon-unity',
+  },
 ]
 
 export const socials: SocialLink[] = [

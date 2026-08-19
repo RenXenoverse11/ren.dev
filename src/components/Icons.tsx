@@ -200,6 +200,26 @@ export function PenIcon({ className }: IconProps) {
   )
 }
 
+export function GridIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </svg>
+  )
+}
+
+export function ListIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M8 6h13M8 12h13M8 18h13" />
+      <path d="M3 6h.01M3 12h.01M3 18h.01" />
+    </svg>
+  )
+}
+
 export function ArrowLeftIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
