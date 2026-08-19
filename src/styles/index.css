@@ -829,13 +829,15 @@ textarea {
   background: var(--surface);
 }
 
-/* Brand color per mark, with a light substitute in dark mode for the marks
-   that are near-black (GitHub, Vercel, three.js). */
+/* Brand color per mark, with substitutes for marks that would vanish
+   against one theme — near-black ones (GitHub, Vercel, three.js) get a
+   light stand-in for dark mode; near-white ones (Unity) get a dark one
+   for light mode. */
 .tech__icon {
   width: 18px;
   height: 18px;
   flex: none;
-  color: var(--icon, currentColor);
+  color: var(--icon-light, var(--icon, currentColor));
 }
 
 :root[data-theme='dark'] .tech__icon {

@@ -160,11 +160,35 @@ export function PhoneIcon({ className }: IconProps) {
   )
 }
 
+export function GamepadIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="2" y="7" width="20" height="11" rx="5" />
+      <path d="M7 9.5v4M5 11.5h4" />
+      <circle cx="15.5" cy="10.5" r="0.9" fill="currentColor" />
+      <circle cx="18" cy="13" r="0.9" fill="currentColor" />
+    </svg>
+  )
+}
+
+/** Simplified microchip — a body with a few pins on each side, standing in
+    for embedded/hardware work (Arduino, ESP32, Raspberry Pi). */
+export function ChipIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="7" y="7" width="10" height="10" rx="1.5" />
+      <path d="M9.5 2v3M14.5 2v3M9.5 19v3M14.5 19v3M2 9.5h3M2 14.5h3M19 9.5h3M19 14.5h3" />
+    </svg>
+  )
+}
+
 export const categoryIcons = {
   code: CodeIcon,
   database: DatabaseIcon,
   layers: LayersIcon,
   phone: PhoneIcon,
+  gamepad: GamepadIcon,
+  chip: ChipIcon,
 }
 
 export function GraduationCapIcon({ className }: IconProps) {

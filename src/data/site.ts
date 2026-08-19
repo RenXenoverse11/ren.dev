@@ -14,7 +14,7 @@ export type Tech = {
 export type SkillGroup = {
   title: string
   description: string
-  icon: 'code' | 'database' | 'layers' | 'phone'
+  icon: 'code' | 'database' | 'layers' | 'phone' | 'gamepad' | 'chip'
   items: Tech[]
 }
 
@@ -100,9 +100,6 @@ export const skillGroups: SkillGroup[] = [
       { name: 'React 19', slug: 'react' },
       { name: 'TypeScript', slug: 'typescript' },
       { name: 'Svelte 5', slug: 'svelte' },
-      { name: 'Angular', slug: 'angular' },
-      { name: 'Vue.js', slug: 'vuedotjs' },
-      { name: 'jQuery', slug: 'jquery' },
       { name: 'Tailwind CSS', slug: 'tailwindcss' },
       { name: 'Three.js', slug: 'threedotjs' },
       { name: 'Framer Motion', slug: 'framer' },
@@ -114,6 +111,7 @@ export const skillGroups: SkillGroup[] = [
     icon: 'database',
     items: [
       { name: 'Node.js', slug: 'nodedotjs' },
+      { name: 'PHP', slug: 'php' },
       { name: 'Laravel', slug: 'laravel' },
       { name: 'Supabase', slug: 'supabase' },
       { name: 'PostgreSQL', slug: 'postgresql' },
@@ -128,11 +126,9 @@ export const skillGroups: SkillGroup[] = [
     icon: 'layers',
     items: [
       { name: 'Vite', slug: 'vite' },
-      { name: 'Git', slug: 'git' },
       { name: 'GitHub', slug: 'github' },
       { name: 'Vercel', slug: 'vercel' },
       { name: 'Cloudflare', slug: 'cloudflare' },
-      { name: 'OSRM', glyph: 'O' },
       { name: 'Mapbox', slug: 'mapbox' },
       { name: 'Leaflet', slug: 'leaflet' },
     ],
@@ -145,7 +141,30 @@ export const skillGroups: SkillGroup[] = [
       { name: 'React Native', slug: 'react' },
       { name: 'Flutter', slug: 'flutter' },
       { name: 'Dart', slug: 'dart' },
+      { name: 'Java', glyph: '☕' },
+      { name: 'Capacitor', slug: 'capacitor' },
       { name: 'Android Studio', slug: 'androidstudio' },
+    ],
+  },
+  {
+    title: 'Game Dev',
+    description: 'Building games and interactive experiences.',
+    icon: 'gamepad',
+    items: [
+      { name: 'Unity', slug: 'unity' },
+      { name: 'C#', glyph: 'C#' },
+      { name: 'Phaser', glyph: 'Ph' },
+    ],
+  },
+  {
+    title: 'Embedded & Hardware',
+    description: 'Microcontrollers and physical computing.',
+    icon: 'chip',
+    items: [
+      { name: 'Arduino', slug: 'arduino' },
+      { name: 'ESP32', slug: 'espressif' },
+      { name: 'Raspberry Pi', slug: 'raspberrypi' },
+      { name: 'C++', slug: 'cplusplus' },
     ],
   },
 ]

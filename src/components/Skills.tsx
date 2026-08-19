@@ -27,6 +27,7 @@ function TechIcon({ tech }: { tech: Tech }) {
         {
           '--icon': icon.hex,
           ...(icon.darkHex ? { '--icon-dark': icon.darkHex } : {}),
+          ...(icon.lightHex ? { '--icon-light': icon.lightHex } : {}),
         } as React.CSSProperties
       }
     >
