@@ -33,7 +33,7 @@
   --radius: 12px;
   --radius-lg: 14px;
   --nav-height: 72px;
-  --container: 1320px;
+  --container: 1520px;
 }
 
 :root[data-theme='dark'] {
@@ -887,8 +887,8 @@ textarea {
 }
 
 .projects__grid .project {
-  flex: 1 1 300px;
-  max-width: 420px;
+  flex: 1 1 420px;
+  max-width: 500px;
 }
 
 .project {
