@@ -1,58 +1,70 @@
 /**
- * Full-color hexagon marks for tools whose brand identity has no
- * single-color logo (so they can't go through the brandIcons pipeline).
+ * Full-color marks for tools whose logo has no single-color form, so they
+ * can't go through the brandIcons pipeline. simple-icons carries neither of
+ * these (it has F#, not C#, and no Phaser at all), which is why they're
+ * hand-held here rather than generated.
  */
 
+/**
+ * The classic C# mark: a purple hexagon with a white "C#".
+ *
+ * Traced from devicon's `csharp` (MIT). Preferred over the .NET-family
+ * variant in Iconify's `logos` set, whose glyph is small inside its hexagon
+ * and turns to mush at the 20px these chips render at — this one carries a
+ * much larger "C#" and stays readable.
+ */
 export function CSharpBadge({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 256 285" aria-hidden>
-      <defs>
-        <linearGradient id="csharp-badge-bg" x1="17.42%" x2="56.516%" y1="21.86%" y2="97.437%">
-          <stop offset="0%" stopColor="#927be5" />
-          <stop offset="100%" stopColor="#512bd4" />
-        </linearGradient>
-      </defs>
+    <svg className={className} viewBox="0 0 128 128" aria-hidden>
       <path
-        fill="url(#csharp-badge-bg)"
-        d="M0 89.355v105.576c0 13.06 6.967 25.14 18.286 31.666l91.429 52.794a36.56 36.56 0 0 0 36.571 0l91.429-52.794A36.56 36.56 0 0 0 256 194.93V89.356a36.56 36.56 0 0 0-18.285-31.672l-91.43-52.78a36.55 36.55 0 0 0-36.57 0l-91.43 52.78A36.57 36.57 0 0 0 0 89.356"
+        fill="#9b4f96"
+        d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7s-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7"
+      />
+      <path
+        fill="#68217a"
+        d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7s2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8z"
       />
       <path
         fill="#fff"
-        d="M64.003 123.872v36.575a9.13 9.13 0 0 0 9.145 9.145a9.14 9.14 0 0 0 9.145-9.145a9.142 9.142 0 1 1 18.285 0c0 15.149-12.28 27.43-27.43 27.43s-27.43-12.281-27.43-27.43v-36.57c0-15.15 12.28-27.43 27.43-27.43s27.43 12.28 27.43 27.43a9.142 9.142 0 0 1-18.285 0a9.142 9.142 0 1 0-18.285 0zm146.29 36.575a9.134 9.134 0 0 1-9.146 9.145h-9.145v9.14c0 2.427-.96 4.753-2.678 6.466a9.124 9.124 0 0 1-12.928 0a9.17 9.17 0 0 1-2.679-6.467v-9.14h-18.284v9.14a9.124 9.124 0 0 1-9.146 9.146a9.124 9.124 0 0 1-9.14-9.146v-9.14h-9.15a9.142 9.142 0 0 1 0-18.284h9.145v-18.285h-9.145a9.142 9.142 0 0 1 0-18.285h9.145v-9.145a9.142 9.142 0 0 1 18.285 0v9.14h18.285v-9.14a9.142 9.142 0 0 1 18.285 0v9.14h9.145a9.12 9.12 0 0 1 6.461 2.678a9.124 9.124 0 0 1 0 12.928a9.13 9.13 0 0 1-6.46 2.684h-9.146v18.285h9.145a9.166 9.166 0 0 1 9.145 9.14zm-36.576-27.425h-18.284v18.285h18.284z"
+        d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20c-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8zM97 66.2l.9-4.3h-4.2v-4.7h5.1L100 51h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7H97zm4.8 0h3.8l.9-4.3h-3.8z"
       />
     </svg>
   )
 }
 
 /**
- * Phaser has no official hexagon mark — this reuses the C# hexagon's
- * outline so the pair reads as one family, filled with the blue lifted
- * from Phaser's own "planet" logo (cdn.phaser.io/images/logo/phaser-logo.svg)
- * instead of an invented color.
+ * Phaser publishes no square icon mark — its only logo is a ~3:1 wordmark
+ * (bundled in the npm package as changelog/v4/assets/phaser4-logo.png), which
+ * is unreadable at chip size and would just repeat the "Phaser" label beside
+ * it. No icon set carries one either: not simple-icons, logos, devicon,
+ * skill-icons, or cib.
+ *
+ * So this is deliberately a generic rounded tile rather than a pretend brand
+ * mark. What is authentic is the color: the cyan and magenta are sampled
+ * straight from that official wordmark, so the chip still reads as Phaser
+ * beside its neighbours.
  */
 export function PhaserBadge({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 256 285" aria-hidden>
+    <svg className={className} viewBox="0 0 128 128" aria-hidden>
       <defs>
-        <linearGradient id="phaser-badge-bg" x1="17.42%" x2="56.516%" y1="21.86%" y2="97.437%">
-          <stop offset="0%" stopColor="#bfebfd" />
-          <stop offset="100%" stopColor="#3d6fa8" />
+        <linearGradient id="phaser-badge-bg" x1="0%" x2="100%" y1="0%" y2="100%">
+          <stop offset="0%" stopColor="#6CE3F8" />
+          <stop offset="55%" stopColor="#48C8F1" />
+          <stop offset="100%" stopColor="#F52CE6" />
         </linearGradient>
       </defs>
-      <path
-        fill="url(#phaser-badge-bg)"
-        d="M0 89.355v105.576c0 13.06 6.967 25.14 18.286 31.666l91.429 52.794a36.56 36.56 0 0 0 36.571 0l91.429-52.794A36.56 36.56 0 0 0 256 194.93V89.356a36.56 36.56 0 0 0-18.285-31.672l-91.43-52.78a36.55 36.55 0 0 0-36.57 0l-91.43 52.78A36.57 36.57 0 0 0 0 89.356"
-      />
+      <rect width="128" height="128" rx="28" fill="url(#phaser-badge-bg)" />
       <text
-        x="128"
-        y="160"
+        x="64"
+        y="92"
         textAnchor="middle"
-        fontFamily="system-ui, sans-serif"
+        fontFamily="system-ui, -apple-system, 'Segoe UI', sans-serif"
         fontWeight="700"
-        fontSize="76"
+        fontSize="78"
         fill="#fff"
       >
-        Ph
+        P
       </text>
     </svg>
   )

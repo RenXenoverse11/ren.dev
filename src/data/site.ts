@@ -149,7 +149,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    title: 'Game Dev',
+    title: 'Game Development',
     description: 'Building games and interactive experiences.',
     icon: 'gamepad',
     items: [
