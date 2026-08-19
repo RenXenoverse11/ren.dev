@@ -548,6 +548,7 @@ textarea {
 }
 
 .hero__title {
+  font-family: 'Times New Roman', Times, serif;
   font-size: clamp(2.6rem, 6vw, 4.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
