@@ -17,6 +17,7 @@ import {
   SunIcon,
   UserIcon,
 } from './Icons'
+import { LocalClock } from './LocalClock'
 import { Logo } from './Logo'
 
 /**
@@ -173,6 +174,10 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
+
+        {/* Pinned to the foot of the rail. Only rendered visibly in the sidebar
+            layout; below that the hero carries the clock instead. */}
+        <LocalClock className="navbar__clock" />
       </div>
     </header>
   )
