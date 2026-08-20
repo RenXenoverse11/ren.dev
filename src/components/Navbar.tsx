@@ -152,11 +152,16 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
           </a>
           <button
             type="button"
-            className="icon-button"
+            className="icon-button navbar__theme"
             onClick={onToggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+            {/* Only rendered visibly in the sidebar layout, which has the room
+                for it. The button keeps its aria-label either way. */}
+            <span className="navbar__theme-label" aria-hidden>
+              Toggle theme
+            </span>
           </button>
           <button
             type="button"

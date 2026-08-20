@@ -2167,3 +2167,169 @@ textarea {
     animation: none;
   }
 }
+
+/* ============================================================
+   Sidebar navigation (wide screens)
+   ============================================================ */
+/* Declared before the media query below, not after: media queries add no
+   specificity, so a later base rule would beat the sidebar's `display: block`
+   and hide the label at every width. */
+.navbar__theme-label {
+  display: none;
+}
+
+/* The nav becomes a fixed rail on the left instead of a bar across the top.
+
+   1280px rather than a smaller breakpoint on purpose: the rail takes 244px out
+   of the content width, and the hero's two-column grid needs about 960px to
+   avoid crushing the portrait against the copy. Below this the horizontal bar
+   (and, under 768px, the drawer) still applies unchanged. */
+@media (min-width: 1280px) {
+  :root {
+    --sidebar-width: 244px;
+    /* Nothing is pinned across the top any more, so every
+       `calc(var(--nav-height) + …)` top offset collapses to just its own
+       spacing. */
+    --nav-height: 0px;
+  }
+
+  html {
+    /* Anchored jumps land flush without a bar to clear, but a little air
+       above the heading reads better than butting it to the edge. */
+    scroll-padding-top: 24px;
+  }
+
+  /* Shifts main and footer together without restructuring the JSX — the rail
+     is fixed, so it sits inside this padding. */
+  body {
+    padding-left: var(--sidebar-width);
+  }
+
+  .navbar {
+    inset: 0 auto 0 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+
+  /* The scroll shadow belonged to a bar the content slid under. A full-height
+     rail is never overlapped, so it stays flat. */
+  .navbar--scrolled {
+    box-shadow: none;
+    border-bottom-color: transparent;
+  }
+
+  .navbar__inner {
+    max-width: none;
+    height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 26px;
+    padding: 30px 18px 24px;
+  }
+
+  .logo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo__mark {
+    height: 34px;
+    width: 42.1px;
+  }
+
+  .logo__text {
+    font-size: 1.15rem;
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    margin-left: 0;
+  }
+
+  /* Same filled-row treatment as the mobile drawer: a sliding underline reads
+     as a horizontal affordance and has nothing to span in a vertical list. */
+  .navbar__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .navbar__link::after {
+    display: none;
+  }
+
+  .navbar__link:hover {
+    background: var(--surface-2);
+  }
+
+  .navbar__link--active {
+    background: var(--brand-tint);
+  }
+
+  .navbar__link-icon {
+    display: block;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  .navbar__link:hover .navbar__link-icon,
+  .navbar__link--active .navbar__link-icon {
+    color: currentColor;
+  }
+
+  .navbar__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .navbar__resume {
+    justify-content: center;
+  }
+
+  /* Matches the nav rows rather than the bare icon button used in the bar, so
+     the rail reads as one column of controls. */
+  .navbar__theme {
+    /* .icon-button is a centred grid, which stacks the icon above the label.
+       Flex puts them on one row like the nav entries above. */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    height: auto;
+    padding: 11px 12px;
+    border-radius: 10px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .navbar__theme:hover {
+    background: var(--surface-2);
+  }
+
+  .navbar__theme svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+  }
+
+  .navbar__theme-label {
+    display: block;
+  }
+}
