@@ -4,6 +4,7 @@ date: '2026-08-21'
 summary: 'The TypeScript team merged their Go-based compiler into main, promising up to 10x. I ran it against this site instead of just repeating the announcement. It is faster. It is not 10x, and the reason why is the actual finding.'
 tags: ['TypeScript', 'Performance']
 readingTime: 5
+image: '/blog/typescript-native-compiler-benchmark.webp'
 draft: true
 ---
 
