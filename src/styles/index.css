@@ -738,7 +738,6 @@ textarea {
 .about__body {
   max-width: 760px;
   margin: 0 auto;
-  text-align: justify;
 }
 
 .about__lead,
