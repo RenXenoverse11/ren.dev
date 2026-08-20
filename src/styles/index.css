@@ -735,6 +735,15 @@ textarea {
 /* ============================================================
    About
    ============================================================ */
+/* Fills exactly one viewport, like .hero, so a sidebar-nav jump to #about
+   shows only About: no dangling gap below shorter content, no peek of the
+   section after it. */
+.about.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .about__body {
   max-width: 760px;
   margin: 0 auto;
@@ -1202,6 +1211,14 @@ textarea {
 /* ============================================================
    Contact
    ============================================================ */
+/* Same reasoning as .about.section: fills one viewport so a sidebar-nav
+   jump to #contact lands on exactly this section, nothing more. */
+.contact.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .contact__grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
