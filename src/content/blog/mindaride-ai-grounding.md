@@ -4,6 +4,7 @@ date: '2026-08-21'
 summary: 'A chatbot that answers fare and schedule questions in Tagalog, Bisaya, English, or Taglish, backed by four LLM providers and never allowed to guess a number. What actually keeps it honest.'
 tags: ['AI', 'LLM', 'Supabase']
 readingTime: 7
+image: '/blog/mindaride-ai-grounding.webp'
 draft: true
 ---
 
