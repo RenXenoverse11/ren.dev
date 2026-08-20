@@ -1,6 +1,6 @@
 ---
 title: 'What actually happens when you build with an AI agent'
-date: '2026-08-19'
+date: '2026-02-19'
 summary: 'I rebuilt parts of this portfolio with an AI coding agent driving. Not a demo, but real commits, a real bug it caught, and the places where I had to overrule it.'
 tags: ['AI', 'Workflow', 'React']
 readingTime: 7

@@ -1,6 +1,6 @@
 ---
 title: 'Real-time detection on a Raspberry Pi, built for eight-year-olds'
-date: '2026-08-21'
+date: '2026-01-21'
 summary: 'A wooden arcade cabinet, a Raspberry Pi, and one TensorFlow Lite model doing four different jobs. What the code actually does, and what broke once real kids started using it.'
 tags: ['Python', 'Computer Vision', 'Raspberry Pi']
 readingTime: 6
