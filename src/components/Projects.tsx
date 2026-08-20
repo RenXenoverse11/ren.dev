@@ -32,8 +32,8 @@ function ProjectCover({ project }: { project: Project }) {
 
 export function Projects() {
   return (
-    <section className="section projects" id="projects">
-      <div className="container">
+    <section className="section projects">
+      <div className="container" id="projects">
         <SectionHeading title="Projects" subtitle="A few things I've designed and built" />
 
         <div className="projects__grid">

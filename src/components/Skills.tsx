@@ -45,8 +45,8 @@ function TechIcon({ tech }: { tech: Tech }) {
 
 export function Skills() {
   return (
-    <section className="section skills" id="skills">
-      <div className="container">
+    <section className="section skills">
+      <div className="container" id="skills">
         <SectionHeading title="Skills" subtitle="Technologies I work with every day" />
 
         <div className="skills__rows">

@@ -11,8 +11,8 @@ export function BlogTeaser() {
   if (posts.length === 0) return null
 
   return (
-    <section className="section blog" id="blog">
-      <div className="container">
+    <section className="section blog">
+      <div className="container" id="blog">
         <SectionHeading title="Blog" subtitle="Notes on things I've built" />
 
         <div className="blog__grid">

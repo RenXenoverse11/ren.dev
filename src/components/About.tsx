@@ -4,8 +4,8 @@ import { SectionHeading } from './SectionHeading'
 
 export function About() {
   return (
-    <section className="section about" id="about">
-      <div className="container">
+    <section className="section about">
+      <div className="container" id="about">
         <SectionHeading title={about.heading} subtitle={about.subheading} />
 
         <div className="about__body" data-reveal>

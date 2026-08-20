@@ -64,8 +64,8 @@ export function Contact() {
   }
 
   return (
-    <section className="section contact" id="contact">
-      <div className="container">
+    <section className="section contact">
+      <div className="container" id="contact">
         <SectionHeading title="Contact" subtitle="Have a project in mind? Let's talk." />
 
         <div className="contact__grid">
