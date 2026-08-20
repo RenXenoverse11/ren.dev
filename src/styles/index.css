@@ -1551,6 +1551,12 @@ textarea {
   list-style: none;
 }
 
+.post__footer {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
 /* Pushed to the bottom so the link sits on one line across cards of
    differing summary lengths. */
 .post-card__more {

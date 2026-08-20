@@ -74,14 +74,6 @@ export function BlogPost() {
             <h1 className="post__title">{post.title}</h1>
             <p className="post__summary">{post.summary}</p>
 
-            <ul className="post__tags">
-              {post.tags.map((tag) => (
-                <li key={tag} className="tag">
-                  {tag}
-                </li>
-              ))}
-            </ul>
-
             <Byline />
           </header>
 
@@ -94,6 +86,16 @@ export function BlogPost() {
           {/* Markdown is compiled at build time from a file in this repo — the
               only author is me, so there is no untrusted input to sanitize. */}
           <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+
+          <footer className="post__footer">
+            <ul className="post__tags">
+              {post.tags.map((tag) => (
+                <li key={tag} className="tag">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </footer>
         </div>
       </article>
     </main>
