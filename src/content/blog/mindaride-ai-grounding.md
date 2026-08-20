@@ -1,6 +1,6 @@
 ---
 title: 'Keeping MindaRide AI from inventing a bus fare'
-date: '2026-08-21'
+date: '2026-05-21'
 summary: 'A chatbot that answers fare and schedule questions in Tagalog, Bisaya, English, or Taglish, backed by four LLM providers and never allowed to guess a number. What actually keeps it honest.'
 tags: ['AI', 'LLM', 'Supabase']
 readingTime: 7

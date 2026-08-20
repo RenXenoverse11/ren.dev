@@ -1,6 +1,6 @@
 ---
 title: 'Porting The Last Aethon from Phaser to Unity, mid-build'
-date: '2026-08-20'
+date: '2026-06-20'
 summary: 'The Phaser prototype worked. I am rebuilding it in Unity anyway. Why, what ported cleanly, and the two silent rendering bugs an agent-driven editor let through before I learned not to trust its "success" response.'
 tags: ['Unity', 'Game Dev', 'C#']
 readingTime: 6
