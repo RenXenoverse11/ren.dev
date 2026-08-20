@@ -2262,6 +2262,18 @@ textarea {
     scroll-padding-top: 24px;
   }
 
+  /* .about.section and .contact.section fill exactly one viewport (see their
+     own rules), so the scroll-padding-top above turns into the *previous*
+     section's background peeking through instead of air above a heading —
+     there's no bar here to need clearing from. Cancel it just for these two.
+     -34px rather than -24px: measured empirically, the browser's fragment-
+     scroll landing doesn't cancel 1:1 against scroll-padding-top the way
+     scrollIntoView() does; -24px still left a ~10px sliver of peek. */
+  .about.section,
+  .contact.section {
+    scroll-margin-top: -34px;
+  }
+
   /* Shifts main and footer together without restructuring the JSX — the rail
      is fixed, so it sits inside this padding. */
   body {
