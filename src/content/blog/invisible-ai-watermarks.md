@@ -4,6 +4,7 @@ date: '2026-08-21'
 summary: 'An invisible watermark and a "written with AI" disclosure line solve two different problems. Confusing them is why watermarking debates keep talking past each other.'
 tags: ['AI', 'Opinion']
 readingTime: 5
+image: '/blog/invisible-ai-watermarks.webp'
 draft: true
 ---
 
