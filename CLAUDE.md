@@ -12,3 +12,6 @@ a post out of the built site while still previewing it in `npm run dev`.
 - Never use em dashes (`—`) in post content. They read as an AI-generated tell.
   Rewrite the sentence with a comma, colon, period, or parentheses instead of
   substituting a hyphen or en dash, which look equally mechanical.
+- Never add a disclosure line admitting Claude wrote the post (e.g. "Written
+  with help from Claude..."). A post can be *about* Claude or AI tools as its
+  subject matter, but it must not disclose that the writing itself was AI-assisted.
