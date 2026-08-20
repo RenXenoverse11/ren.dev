@@ -1,9 +1,43 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { findPost, formatDate } from '../data/blog'
 import { site } from '../data/site'
 import { ArrowLeftIcon } from './Icons'
 import { NotFound } from './NotFound'
+
+/** Author byline. Falls back to initials rather than a broken image, the same
+    way the hero portrait does. */
+function Byline() {
+  const [failed, setFailed] = useState(false)
+  const initials = site.name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('')
+
+  return (
+    <div className="byline">
+      {failed ? (
+        <span className="byline__avatar byline__avatar--fallback" aria-hidden>
+          {initials}
+        </span>
+      ) : (
+        <img
+          className="byline__avatar"
+          src={site.avatar}
+          alt=""
+          width={40}
+          height={40}
+          loading="lazy"
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
+      )}
+      <span className="byline__name">{site.name}</span>
+    </div>
+  )
+}
 
 /** A single post at `/blog/:slug`. */
 export function BlogPost() {
@@ -47,6 +81,8 @@ export function BlogPost() {
                 </li>
               ))}
             </ul>
+
+            <Byline />
           </header>
 
           {post.image ? (

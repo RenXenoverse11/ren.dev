@@ -69,6 +69,13 @@ export const site = {
    * back to your initials instead of a broken image.
    */
   photo: '/laurence.jpg',
+  /**
+   * Byline avatar on blog posts. A separate, much smaller crop of the hero
+   * photo: that one is 180KB for a 360px frame, which is wasted bytes behind a
+   * 40px circle on a page that doesn't otherwise load it.
+   * Regenerate with `scripts/optimize-images.mjs`-style sharp resizing.
+   */
+  avatar: '/laurence-avatar.webp',
   /** Served from `public/`. The filename is what lands in the visitor's downloads. */
   resume: '/LAURENCE-BAGAAN_RESUME.pdf',
   location: 'Davao City, Philippines',

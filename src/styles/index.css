@@ -1592,6 +1592,47 @@ textarea {
   border-bottom: 1px solid var(--border);
 }
 
+/* Author byline. Sits last in the header, separated from the tags above it so
+   it reads as attribution rather than another piece of post metadata. */
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.byline__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* The source is a head-and-shoulders crop, so anchor on the face rather
+     than letting a square crop centre on the chest. */
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  flex: none;
+}
+
+.byline__avatar--fallback {
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-strong);
+  background: var(--brand-tint);
+}
+
+:root[data-theme='dark'] .byline__avatar--fallback {
+  color: var(--brand-soft);
+}
+
+.byline__name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
 .post__title {
   font-family: 'Fraunces', 'Times New Roman', Times, serif;
   font-size: clamp(1.9rem, 4vw, 2.7rem);
