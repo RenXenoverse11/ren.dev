@@ -1575,6 +1575,36 @@ textarea {
   color: var(--text-muted);
 }
 
+/* Closes the dead end at the bottom of the standalone /blog page — see the
+   comment in BlogIndex.tsx for why this section exists. */
+.blog-continue {
+  border-top: 1px solid var(--border);
+}
+
+.blog-continue__inner {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.blog-continue__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.blog-continue__text {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+.blog-continue__links {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
 .post__back {
   display: inline-flex;
   align-items: center;

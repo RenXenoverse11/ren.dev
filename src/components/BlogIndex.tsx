@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { posts } from '../data/blog'
-import { GridIcon, ListIcon } from './Icons'
+import { revealDelay } from '../hooks/useReveal'
+import { GridIcon, ListIcon, MailIcon } from './Icons'
 import { PostCard } from './PostCard'
 import { SectionHeading } from './SectionHeading'
 
@@ -50,6 +52,32 @@ export function BlogIndex() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* /blog is a standalone route rather than a section in the Home scroll
+          (each post needs its own shareable URL), so scrolling past the grid
+          hits the end of the page with nowhere further to go. This closes
+          that dead end with the same links the one-page flow would have led
+          into next. */}
+      <section className="section blog-continue" data-reveal>
+        <div className="container blog-continue__inner">
+          <h2 className="blog-continue__title">Looking for something else?</h2>
+          <p className="blog-continue__text">
+            Here's the rest of the portfolio: what I do, what I've built, and how to reach me.
+          </p>
+
+          <div className="blog-continue__links" data-reveal style={revealDelay(1)}>
+            <Link className="button button--ghost" to="/#about">
+              About Me
+            </Link>
+            <Link className="button button--ghost" to="/#projects">
+              View Projects
+            </Link>
+            <Link className="button button--primary" to="/#contact">
+              <MailIcon /> Get in Touch
+            </Link>
+          </div>
         </div>
       </section>
     </main>
