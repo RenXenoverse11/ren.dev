@@ -144,8 +144,3 @@ design: turn a fixed, well-lit training set into something that still
 responds correctly when the "well-lit" part stops being true, because a
 room full of eight-year-olds was never going to hold still for the
 alternative.
-
----
-
-*Written with help from Claude, based on a direct read of the shipped
-thesis code. Claude didn't build this one, the thesis team did.*

@@ -152,8 +152,3 @@ Blog-vs-Writeups call above, and the reveal-animation bug it caught that a less
 careful pass would have shipped. Would I tell a junior dev to use this? Only with
 that same habit attached. Without the discipline to verify instead of trust, it's
 a tool that lets you ship confidently wrong things faster than you used to.
-
----
-
-*Written with help from Claude, which also wrote most of the code described
-above. Judge the bias accordingly.*

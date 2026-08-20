@@ -111,9 +111,3 @@ what the behavior should actually feel like.
 Still Act I. Still in progress. Most of what "porting" has actually looked
 like so far is bugs and re-imports, not new features. The parts that did pay
 off, mainly the camera, are enough to make the trade worth it.
-
----
-
-*Written with help from Claude, which also did the Unity-side implementation
-described above through an MCP-driven editor workflow. Judge the bias
-accordingly.*
