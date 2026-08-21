@@ -46,6 +46,16 @@ export type SocialLink = {
 }
 
 export const site = {
+  /**
+   * Canonical origin, no trailing slash. Every absolute URL the site emits
+   * derives from this: canonical links, OG/Twitter tags, sitemap entries, and
+   * the JSON-LD graph. Social scrapers reject relative URLs, so this cannot be
+   * inferred at runtime and has to be stated once here.
+   *
+   * Pointing a custom domain at the deployment is a one-line change: update
+   * this, rebuild, and every generated URL follows.
+   */
+  url: 'https://renxen-dev.vercel.app',
   /** Wordmark next to the logo. Split on the last dot: name, accent dot, suffix. */
   brand: 'renxen.dev',
   /** Show the wordmark text beside the mark. Set false to use the mark alone. */
