@@ -705,6 +705,28 @@ textarea {
   background: var(--brand-tint);
 }
 
+/* The sidebar frees up real width that the hero's clamp() caps were tuned
+   for a narrower top-bar layout, so text and photo read small against all
+   the room around them. Scaled up to match, desktop only. */
+@media (min-width: 1280px) {
+  .hero__title {
+    font-size: clamp(2.6rem, 6vw, 5.5rem);
+  }
+
+  .hero__role {
+    font-size: clamp(1.1rem, 2.2vw, 1.75rem);
+  }
+
+  .hero__tagline {
+    font-size: 1.15rem;
+    max-width: 62ch;
+  }
+
+  .hero__photo-wrap {
+    width: min(420px, 100%);
+  }
+}
+
 /* ============================================================
    Section heading
    ============================================================ */
