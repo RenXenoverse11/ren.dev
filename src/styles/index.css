@@ -1370,6 +1370,21 @@ textarea {
   align-items: start;
 }
 
+/* At the sidebar layout's full container width, a 1fr column stretches the
+   short tagline out until the social icons land nearly 1000px away with
+   nothing between them. Capped so the two halves stay in the same
+   conversation instead of on opposite edges of the screen. */
+@media (min-width: 1280px) {
+  .footer__inner {
+    max-width: 1100px;
+    /* .container's margin-inline: auto would center this narrower box,
+       pulling it out of alignment with every other section's left edge
+       (and with .footer__bottom below, which stays full width). Pin it
+       to the same left edge instead. */
+    margin-inline: 0;
+  }
+}
+
 .footer__tagline {
   margin-top: 14px;
   max-width: 38ch;
