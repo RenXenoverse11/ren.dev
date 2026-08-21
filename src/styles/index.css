@@ -2451,22 +2451,33 @@ textarea {
      Stacked rather than inline: the rail is too narrow for the whole phrase on
      one line, and letting it shrink wraps the label mid-sentence. Breaking
      deliberately after the label puts the time on its own line instead. */
+  /* A bordered card rather than plain text sitting in the rail's bottom
+     whitespace — reads as a deliberate widget instead of an afterthought. */
   .navbar__clock {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 7px;
     margin-top: auto;
-    padding: 0 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-2);
     font-size: 0.8rem;
     line-height: 1.45;
+  }
+
+  .navbar__clock svg {
+    width: 17px;
+    height: 17px;
   }
 
   .navbar__clock strong {
     flex-basis: 100%;
     /* Icon width plus the flex gap, so the time lines up under the label
        rather than under the icon. */
-    padding-left: 22px;
-    font-size: 0.92rem;
+    padding-left: 24px;
+    font-size: 1.05rem;
   }
 
   /* The hero's copy would otherwise duplicate the one in the rail. */
