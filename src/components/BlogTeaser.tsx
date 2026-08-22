@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { TransitionLink } from './TransitionLink'
 import { posts } from '../data/blog'
 import { ArrowDownIcon } from './Icons'
 import { PostCard } from './PostCard'
@@ -23,9 +23,9 @@ export function BlogTeaser() {
 
         {posts.length > 3 ? (
           <div className="blog__actions" data-reveal>
-            <Link className="button button--ghost" to="/blog">
+            <TransitionLink className="button button--ghost" to="/blog">
               All posts <ArrowDownIcon />
-            </Link>
+            </TransitionLink>
           </div>
         ) : null}
       </div>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { TransitionLink } from './TransitionLink'
 import { site } from '../data/site'
 import { LogoMark } from './LogoMark'
 
@@ -15,7 +15,7 @@ const brandSuffix = dotIndex === -1 ? '' : site.brand.slice(dotIndex + 1)
  */
 export function Logo({ to = '/' }: { to?: string }) {
   return (
-    <Link className="logo" to={to} aria-label={`${site.brand} home`}>
+    <TransitionLink className="logo" to={to} aria-label={`${site.brand} home`}>
       <LogoMark className="logo__mark" />
       {site.showWordmark ? (
         <span className="logo__text">
@@ -28,6 +28,6 @@ export function Logo({ to = '/' }: { to?: string }) {
           ) : null}
         </span>
       ) : null}
-    </Link>
+    </TransitionLink>
   )
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { TransitionLink } from './TransitionLink'
 import { formatMonthYear, type Post } from '../data/blog'
 import { revealDelay } from '../hooks/useReveal'
 
@@ -87,18 +87,23 @@ export function PostCard({
   // safe to animate.
   if (isRow || revealStep === undefined) {
     return (
-      <Link
+      <TransitionLink
         to={`/blog/${post.slug}`}
         className={`post-card card${isRow ? ' post-card--row' : ''}`}
       >
         {content}
-      </Link>
+      </TransitionLink>
     )
   }
 
   return (
-    <Link to={`/blog/${post.slug}`} className="post-card card" data-reveal style={revealDelay(revealStep)}>
+    <TransitionLink
+      to={`/blog/${post.slug}`}
+      className="post-card card"
+      data-reveal
+      style={revealDelay(revealStep)}
+    >
       {content}
-    </Link>
+    </TransitionLink>
   )
 }

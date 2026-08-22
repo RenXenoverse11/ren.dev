@@ -170,6 +170,31 @@ textarea {
   }
 }
 
+/* ============================================================
+   Route transitions
+   ============================================================ */
+/* Cross-fades between routes using the browser's own View Transitions API,
+   which costs nothing to ship: the work is done by the compositor, and the
+   only JS involved is the `viewTransition` flag React Router already supports.
+   Browsers without it navigate exactly as before.
+
+   Deliberately quick and fade-only. A slower or sliding transition reads as
+   latency on a site whose pages already render instantly, and the incoming
+   page runs its own [data-reveal] entrance immediately after, so anything
+   more here would collide with that. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.22s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The outgoing page leaves slightly faster than the incoming one arrives, so
+   the two never both sit at half opacity, which is what makes a plain
+   cross-fade look muddy mid-transition. */
+::view-transition-old(root) {
+  animation-duration: 0.14s;
+}
+
 .container {
   width: 100%;
   max-width: var(--container);
@@ -2276,6 +2301,16 @@ textarea {
   [data-reveal] {
     opacity: 1;
     animation: none;
+  }
+
+  /* The `*` rule above cannot reach these: view-transition pseudo-elements
+     live outside the document tree, so a universal selector never matches
+     them. Without this, route changes would keep cross-fading for someone who
+     asked the OS for less motion. */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 

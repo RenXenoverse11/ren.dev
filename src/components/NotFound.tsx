@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { TransitionLink } from './TransitionLink'
 
 export function NotFound() {
   return (
@@ -10,9 +10,9 @@ export function NotFound() {
           <p className="notfound__text">
             The link may be out of date, or the page may have moved.
           </p>
-          <Link className="button button--primary" to="/">
+          <TransitionLink className="button button--primary" to="/">
             Back to home
-          </Link>
+          </TransitionLink>
         </div>
       </section>
     </main>

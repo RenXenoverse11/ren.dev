@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { TransitionLink } from './TransitionLink'
+import { useParams } from 'react-router-dom'
 import { findPost, formatDate } from '../data/blog'
 import { site } from '../data/site'
 import { ArrowLeftIcon } from './Icons'
@@ -61,9 +62,9 @@ export function BlogPost() {
     <main>
       <article className="section section--page post">
         <div className="container container--prose">
-          <Link className="post__back" to="/blog">
+          <TransitionLink className="post__back" to="/blog">
             <ArrowLeftIcon /> All posts
-          </Link>
+          </TransitionLink>
 
           <header className="post__header">
             <p className="post__meta">

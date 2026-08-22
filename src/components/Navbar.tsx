@@ -1,5 +1,6 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { TransitionLink } from './TransitionLink'
 import { posts } from '../data/blog'
 import { navLinks, site } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
@@ -86,6 +87,10 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
         {link.label}
       </a>
     ) : (
+      // Plain <Link>, not TransitionLink: these carry a hash, so the route
+      // change is followed by ScrollToTop scrolling to the section. A
+      // cross-fade would finish against the top of the page and only then
+      // jump, reading as two competing animations rather than one.
       <Link
         key={link.href}
         to={`/${link.href}`}
@@ -122,7 +127,7 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
               reads worse than no section at all. Sits between Projects and
               Contact to match its position on the page. */}
           {posts.length > 0 ? (
-            <Link
+            <TransitionLink
               to="/blog"
               className={`navbar__link${
                 pathname.startsWith('/blog') || (onHome && activeId === 'blog')
@@ -134,7 +139,7 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
             >
               <PenIcon className="navbar__link-icon" />
               Blog
-            </Link>
+            </TransitionLink>
           ) : null}
 
           {contactLink ? renderNavLink(contactLink, navLinks.length) : null}
