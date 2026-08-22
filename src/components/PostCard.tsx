@@ -28,10 +28,22 @@ type PostCardProps = {
   revealStep?: number
   /** 'row' lays the cover beside the text instead of above it — the list view. */
   variant?: 'grid' | 'row'
+  /**
+   * Heading level for the card title, which has to match whatever heading
+   * precedes it or the document skips a level. On the home page these cards
+   * sit under the Blog section's <h2>, so <h3> is right. On `/blog` the page
+   * heading is the <h1>, so <h3> would jump from 1 to 3.
+   */
+  titleAs?: 'h2' | 'h3'
 }
 
 /** One post, as a full-card link. Shared by the homepage teaser and `/blog`. */
-export function PostCard({ post, revealStep, variant = 'grid' }: PostCardProps) {
+export function PostCard({
+  post,
+  revealStep,
+  variant = 'grid',
+  titleAs: Title = 'h3',
+}: PostCardProps) {
   const isRow = variant === 'row'
 
   const content = (
@@ -45,7 +57,7 @@ export function PostCard({ post, revealStep, variant = 'grid' }: PostCardProps) 
           <span>{post.readingTime} min read</span>
         </p>
 
-        <h3 className="post-card__title">{post.title}</h3>
+        <Title className="post-card__title">{post.title}</Title>
         <p className="post-card__summary">{post.summary}</p>
 
         {!isRow ? (

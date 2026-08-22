@@ -16,7 +16,8 @@ export function BlogIndex() {
     <main>
       <section className="section section--page">
         <div className="container">
-          <SectionHeading title="Blog" subtitle="Notes on things I've built" />
+          {/* This route has no hero, so its heading is the page's <h1>. */}
+          <SectionHeading as="h1" title="Blog" subtitle="Notes on things I've built" />
 
           {posts.length > 0 ? (
             <div className="blog__toolbar">
@@ -48,7 +49,9 @@ export function BlogIndex() {
           ) : (
             <div className={view === 'grid' ? 'blog__grid' : 'blog__list'}>
               {posts.map((post) => (
-                <PostCard key={post.slug} post={post} variant={view} />
+                // <h2> here, not the default <h3>: this page's heading is an
+                // <h1>, so <h3> would skip a level.
+                <PostCard key={post.slug} post={post} variant={view} titleAs="h2" />
               ))}
             </div>
           )}

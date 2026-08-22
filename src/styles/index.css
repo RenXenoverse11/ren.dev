@@ -5,8 +5,19 @@
   --brand: #22c55e;
   --brand-strong: #16a34a;
   --brand-soft: #86efac;
-  /* Green dark enough to read as display text on --bg (3.79:1, AA large). */
-  --brand-deep: #15913f;
+  /*
+   * The green used for *text* on light surfaces. Dark enough to clear WCAG AA
+   * (4.5:1) as small text on every light background the site actually pairs it
+   * with: white 5.51:1, --brand-tint over white 4.97:1, --brand-tint over
+   * --surface-2 4.68:1 (the tightest case, tag pills on a blog post), plain
+   * --surface-2 5.33:1, and --bg 5.12:1.
+   *
+   * The previous value cleared only AA-large, so every green link, tag, and
+   * label under 18px was failing. Same hue and saturation as --brand, just
+   * darker: fills, buttons, and accents still use the bright --brand, so the
+   * palette reads unchanged.
+   */
+  --brand-deep: #117937;
   --brand-tint: rgba(34, 197, 94, 0.12);
 
   /* Contribution calendar steps, light to dark. */
@@ -225,7 +236,7 @@ textarea {
 .button--ghost {
   background: transparent;
   border-color: var(--brand);
-  color: var(--brand-strong);
+  color: var(--brand-deep);
 }
 
 :root[data-theme='dark'] .button--ghost {
@@ -241,7 +252,7 @@ textarea {
   padding: 5px 12px;
   border-radius: 999px;
   background: var(--brand-tint);
-  color: var(--brand-strong);
+  color: var(--brand-deep);
   font-size: 0.78rem;
   font-weight: 600;
 }
@@ -391,7 +402,7 @@ textarea {
 
 .navbar__link:hover,
 .navbar__link--active {
-  color: var(--brand-strong);
+  color: var(--brand-deep);
 }
 
 :root[data-theme='dark'] .navbar__link:hover,
@@ -701,7 +712,7 @@ textarea {
   height: 100%;
   font-size: 4rem;
   font-weight: 800;
-  color: var(--brand-strong);
+  color: var(--brand-deep);
   background: var(--brand-tint);
 }
 
@@ -1082,7 +1093,7 @@ textarea {
   gap: 8px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--brand-strong);
+  color: var(--brand-deep);
   transition: color 0.2s ease;
 }
 
@@ -1278,7 +1289,7 @@ textarea {
   height: 46px;
   border-radius: 14px;
   background: var(--brand-tint);
-  color: var(--brand-strong);
+  color: var(--brand-deep);
   flex: none;
 }
 
@@ -1351,7 +1362,7 @@ textarea {
 
 .contact__status {
   font-size: 0.9rem;
-  color: var(--brand-strong);
+  color: var(--brand-deep);
 }
 
 /* ============================================================
@@ -1719,7 +1730,7 @@ textarea {
   place-items: center;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--brand-strong);
+  color: var(--brand-deep);
   background: var(--brand-tint);
 }
 
