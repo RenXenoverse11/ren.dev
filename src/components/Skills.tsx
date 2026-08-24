@@ -47,7 +47,7 @@ export function Skills() {
   return (
     <section className="section skills">
       <div className="container" id="skills">
-        <SectionHeading title="Skills" subtitle="Technologies I work with every day" />
+        <SectionHeading title="Skills" subtitle="The tools, frameworks, and platforms I use to build and ship work" />
 
         <div className="skills__rows">
           {skillGroups.map((group, index) => {
