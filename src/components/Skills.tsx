@@ -46,8 +46,8 @@ function TechIcon({ tech }: { tech: Tech }) {
 export function Skills() {
   return (
     <section className="section skills">
-      <div className="container" id="skills">
-        <SectionHeading title="Skills" subtitle="The tools, frameworks, and platforms I use to build and ship work" />
+      <div className="container" id="stack">
+        <SectionHeading title="Tech Stack" subtitle="The tools, frameworks, and platforms I use to build and ship work" />
 
         <div className="skills__rows">
           {skillGroups.map((group, index) => {

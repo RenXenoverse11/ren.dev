@@ -36,7 +36,7 @@ const sectionIds = navLinks
 const navIcons = {
   '#home': HomeIcon,
   '#about': UserIcon,
-  '#skills': CodeIcon,
+  '#stack': CodeIcon,
   '#projects': LayersIcon,
   '#contact': MailIcon,
 } as const
