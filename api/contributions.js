@@ -33,6 +33,24 @@ function normalizeDays(days) {
   return { days, weeks }
 }
 
+function normalizeLevel(level) {
+  if (typeof level === 'number' && Number.isFinite(level)) return level
+
+  switch (String(level)) {
+    case 'CONTRIBUTION_LEVEL_ONE':
+      return 1
+    case 'CONTRIBUTION_LEVEL_TWO':
+      return 2
+    case 'CONTRIBUTION_LEVEL_THREE':
+      return 3
+    case 'CONTRIBUTION_LEVEL_FOUR':
+      return 4
+    case 'CONTRIBUTION_LEVEL_ZERO':
+    default:
+      return 0
+  }
+}
+
 export function parseCalendar(html) {
   // "1,443 contributions in the last year"
   const totalMatch = html.match(/([\d,]+)\s+contribution/i)
@@ -69,7 +87,7 @@ function parseGraphqlCalendar(payload) {
   const days = calendar.weeks.flatMap((week) =>
     week.contributionDays.map((day) => ({
       date: day.date,
-      level: day.contributionLevel,
+      level: normalizeLevel(day.contributionLevel),
       count: day.contributionCount,
     })),
   )
