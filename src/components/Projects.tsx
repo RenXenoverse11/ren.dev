@@ -34,7 +34,10 @@ export function Projects() {
   return (
     <section className="section projects">
       <div className="container" id="projects">
-        <SectionHeading title="Projects" subtitle="A few things I've designed and built" />
+        <SectionHeading
+          title="Projects"
+          subtitle="Products and platforms I've designed and shipped that help solve real problems"
+        />
 
         <div className="projects__grid">
           {projects.map((project, index) => (
