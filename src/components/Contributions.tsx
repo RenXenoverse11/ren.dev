@@ -56,69 +56,77 @@ export function Contributions() {
     }
   }, [])
 
-  if (!calendar) return null
-
-  const labels = monthLabels(calendar.weeks)
+  const login = 'RenXenoverse11'
+  const labels = calendar ? monthLabels(calendar.weeks) : []
 
   return (
     <div className="contributions" id="activity">
       <div className="contributions__card card">
           <div className="contributions__head">
             <h3 className="contributions__title">
-              {calendar.total !== null ? (
+              {calendar && calendar.total !== null ? (
                 <>
                   <strong>{calendar.total.toLocaleString()}</strong> contributions in {calendar.year}
                 </>
               ) : (
-                `GitHub activity in ${calendar.year}`
+                'GitHub activity'
               )}
             </h3>
             <a
               className="contributions__link"
-              href={`https://github.com/${calendar.login}`}
+              href={`https://github.com/${login}`}
               target="_blank"
               rel="noreferrer"
             >
-              @{calendar.login}
+              @{login}
             </a>
           </div>
 
-          <div className="contributions__scroll">
-            <div className="contributions__grid-wrap">
-              <div className="contributions__months" aria-hidden>
-                {labels.map((label, index) => (
-                  <span key={index}>{label}</span>
-                ))}
-              </div>
+          {calendar ? (
+            <div className="contributions__scroll">
+              <div className="contributions__grid-wrap">
+                <div className="contributions__months" aria-hidden>
+                  {labels.map((label, index) => (
+                    <span key={index}>{label}</span>
+                  ))}
+                </div>
 
-              <div className="contributions__weekdays" aria-hidden>
-                <span>Mon</span>
-                <span>Wed</span>
-                <span>Fri</span>
-              </div>
+                <div className="contributions__weekdays" aria-hidden>
+                  <span>Mon</span>
+                  <span>Wed</span>
+                  <span>Fri</span>
+                </div>
 
-              <div
-                className="contributions__grid"
-                role="img"
-                aria-label={`GitHub contribution calendar for ${calendar.year}`}
-              >
-                {calendar.weeks.map((week, weekIndex) =>
-                  week.map((day, dayIndex) =>
-                    day ? (
-                      <span
-                        key={day.date}
-                        className="contributions__day"
-                        data-level={day.level}
-                        title={describe(day)}
-                      />
-                    ) : (
-                      <span key={`${weekIndex}-${dayIndex}`} className="contributions__day contributions__day--empty" />
+                <div
+                  className="contributions__grid"
+                  role="img"
+                  aria-label={`GitHub contribution calendar for ${calendar.year}`}
+                >
+                  {calendar.weeks.map((week, weekIndex) =>
+                    week.map((day, dayIndex) =>
+                      day ? (
+                        <span
+                          key={day.date}
+                          className="contributions__day"
+                          data-level={day.level}
+                          title={describe(day)}
+                        />
+                      ) : (
+                        <span
+                          key={`${weekIndex}-${dayIndex}`}
+                          className="contributions__day contributions__day--empty"
+                        />
+                      ),
                     ),
-                  ),
-                )}
+                  )}
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <p className="contributions__empty">
+              GitHub activity will appear here once the contribution data loads.
+            </p>
+          )}
 
         <div className="contributions__legend">
           <span>Less</span>
