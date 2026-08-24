@@ -5,7 +5,6 @@ summary: 'A wooden arcade cabinet, a Raspberry Pi, and one TensorFlow Lite model
 tags: ['Python', 'Computer Vision', 'Raspberry Pi']
 readingTime: 6
 image: '/blog/first-aid-cabinet-realtime-detection.webp'
-draft: true
 ---
 
 First Aid Adventure was a defended thesis, built with two teammates: a

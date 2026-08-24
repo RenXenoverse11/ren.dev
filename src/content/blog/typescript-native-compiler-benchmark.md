@@ -5,7 +5,6 @@ summary: 'The TypeScript team merged their Go-based compiler into main, promisin
 tags: ['TypeScript', 'Performance']
 readingTime: 5
 image: '/blog/typescript-native-compiler-benchmark.webp'
-draft: true
 ---
 
 The TypeScript repo's main branch is now mostly Go, not JavaScript. The

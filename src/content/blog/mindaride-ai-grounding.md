@@ -5,7 +5,6 @@ summary: 'A chatbot that answers fare and schedule questions in Tagalog, Bisaya,
 tags: ['AI', 'LLM', 'Supabase']
 readingTime: 7
 image: '/blog/mindaride-ai-grounding.webp'
-draft: true
 ---
 
 Every page on MindaRide has a chat bubble in the corner. Ask it "magkano

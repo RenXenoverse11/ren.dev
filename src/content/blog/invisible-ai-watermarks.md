@@ -5,7 +5,6 @@ summary: 'An invisible watermark and a "written with AI" disclosure line solve t
 tags: ['AI', 'Opinion']
 readingTime: 5
 image: '/blog/invisible-ai-watermarks.webp'
-draft: true
 ---
 
 An invisible watermark is not the same thing as a disclosure. A
