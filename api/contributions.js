@@ -51,6 +51,14 @@ function normalizeLevel(level) {
   }
 }
 
+function levelFromCount(count) {
+  if (!count) return 0
+  if (count <= 3) return 1
+  if (count <= 7) return 2
+  if (count <= 15) return 3
+  return 4
+}
+
 export function parseCalendar(html) {
   // "1,443 contributions in the last year"
   const totalMatch = html.match(/([\d,]+)\s+contribution/i)
@@ -87,7 +95,7 @@ function parseGraphqlCalendar(payload) {
   const days = calendar.weeks.flatMap((week) =>
     week.contributionDays.map((day) => ({
       date: day.date,
-      level: normalizeLevel(day.contributionLevel),
+      level: normalizeLevel(day.contributionLevel) || levelFromCount(day.contributionCount),
       count: day.contributionCount,
     })),
   )
