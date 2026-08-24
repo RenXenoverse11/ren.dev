@@ -17,7 +17,7 @@ export function BlogIndex() {
       <section className="section section--page">
         <div className="container">
           {/* This route has no hero, so its heading is the page's <h1>. */}
-          <SectionHeading as="h1" title="Blog" subtitle="Notes on things I've built" />
+          <SectionHeading as="h1" title="Blog" subtitle="Notes, ideas, and opinions from things I've built and shipped" />
 
           {posts.length > 0 ? (
             <div className="blog__toolbar">

@@ -13,7 +13,7 @@ export function BlogTeaser() {
   return (
     <section className="section blog">
       <div className="container" id="blog">
-        <SectionHeading title="Blog" subtitle="Notes on things I've built" />
+        <SectionHeading title="Blog" subtitle="Notes, ideas, and opinions from things I've built and shipped" />
 
         <div className="blog__grid">
           {posts.map((post, index) => (
